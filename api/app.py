@@ -28,8 +28,8 @@ CORS(app)
 chat_sessions = {}
 
 
-#@app.route("/api/chat", methods=["POST"])
-@app.route("/chat", methods=["POST"])
+@app.route("/api/chat", methods=["POST"])
+#@app.route("/chat", methods=["POST"])
 def chat():
     try:
         data = request.get_json()
@@ -71,5 +71,5 @@ def chat():
 def index():
     return "Welcome to ADHAYAYAN Chatbot API!"
     
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+#if __name__ == "__main__":
+#    app.run(debug=True, host="0.0.0.0", port=5000)
