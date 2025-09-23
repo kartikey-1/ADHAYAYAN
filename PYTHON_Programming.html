@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Course - Accordion Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f7f7f7;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #1976d2;
+      margin-bottom: 32px;
+    }
+    h3 {
+        color: #333;
+        margin-top: 24px;
+        margin-bottom: 12px;
+    }
+    details {
+      margin-bottom: 16px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      background: #fafafa;
+      transition: box-shadow 0.2s;
+    }
+    details[open] {
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+      background: #f0f7ff;
+    }
+    summary {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 14px 18px;
+      cursor: pointer;
+      outline: none;
+      color: #1976d2;
+      user-select: none;
+    }
+    details[open] summary {
+      color: #1565c0;
+    }
+    .module-content {
+      padding: 0 18px 16px 18px;
+      color: #333;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+    code {
+      /* background: #e3f2fd; */
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    .BackToHome {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      
+      padding: 32px 24px 32px 24px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #1976d2;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="BackToHome">
+    <a href="index.html#languages "  class="back-link">&larr; Back</a>
+  </div>
+
+  <div class="container">
+    <h1>Python Course</h1>
+
+    <details>
+      <summary>1. Introduction to Python</summary>
+      <div class="module-content">
+        <h3>Welcome!</h3>
+        <p>Welcome to the world of Python! You're about to learn one of the most popular, versatile, and beginner-friendly programming languages in the world.</p>
+        
+        <h3>What is Python?</h3>
+        <p>Python is a high-level, interpreted programming language known for its clear syntax and readability. It was created by Guido van Rossum and first released in 1991. The name "Python" was inspired by the British comedy group Monty Python, not the snake!</p>
+        <p>The philosophy behind Python emphasizes code readability, which is why its syntax is clean and looks a lot like plain English. This makes it an excellent language for beginners to start with.</p>
+
+        <h3>Key Features of Python</h3>
+        <ul>
+            <li><b>Easy to Learn and Read:</b> Python's simple syntax reduces the cost of program maintenance and development. You can write programs with fewer lines of code compared to other languages like Java or C++.</li>
+            <li><b>Interpreted:</b> Python code is executed line by line. This makes debugging easier, as you can quickly identify the exact point where an error occurred.</li>
+            <li><b>Cross-Platform:</b> Python is a cross-platform language, which means a Python program written on a Windows machine will run on a Mac or a Linux machine without any changes.</li>
+            <li><b>Free and Open-Source:</b> You can freely use and distribute Python, even for commercial use. The source code is also available to the public.</li>
+            <li><b>Large Standard Library:</b> Python comes with a "batteries included" philosophy, offering a vast library of pre-written code (modules) for various tasks.</li>
+            <li><b>Vibrant Community:</b> Python has a massive and active community. This means you can easily find documentation, tutorials, and support when you run into problems.</li>
+        </ul>
+
+        <h3>What is Python Used For?</h3>
+        <ul>
+            <li><b>Web Development:</b> Frameworks like Django and Flask allow you to build powerful and scalable websites and web applications.</li>
+            <li><b>Data Science & Machine Learning:</b> Libraries like NumPy, Pandas, and Scikit-learn have made Python the top choice for data analysis, visualization, and artificial intelligence.</li>
+            <li><b>Automation and Scripting:</b> Python is excellent for automating repetitive tasks, like renaming files, scraping data from websites, or managing system processes.</li>
+            <li><b>Software Testing and Prototyping:</b> Its simplicity allows for rapid development, making it ideal for creating prototypes and testing software.</li>
+            <li><b>Game Development:</b> While not as common for AAA games, libraries like Pygame are great for building 2D games and prototypes.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>2. Getting Started with Python</summary>
+      <div class="module-content">
+        <h3>Installing Python</h3>
+        <p>Before you can write any code, you need to install Python on your computer.</p>
+        <ol>
+            <li><b>Go to the Official Python Website:</b> Open your web browser and navigate to <a href="https://python.org/downloads/" target="_blank">python.org/downloads</a>.</li>
+            <li><b>Download the Installer:</b> The website will automatically detect your operating system and suggest the latest stable version for you to download.</li>
+            <li><b>Run the Installer:</b>
+                <ul>
+                    <li><b>On Windows:</b> Run the downloaded <code>.exe</code> file. <b>Crucially, make sure to check the box that says "Add Python to PATH"</b> during the installation process.</li>
+                    <li><b>On macOS:</b> Run the downloaded <code>.pkg</code> file and follow the installation instructions.</li>
+                    <li><b>On Linux:</b> Python is usually pre-installed. You can check with <code>python3 --version</code>.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Writing and Running Your First Script</h3>
+        <p>Let's write the traditional "Hello, World!" program.</p>
+        <p><b>Step 1: Write the Code</b><br>
+        Open a plain text editor, type the following line, and save the file as <code>hello.py</code>.</p>
+        <pre><code>print("Hello, World!")</code></pre>
+        
+        <p><b>Step 2: Run the Script</b><br>
+        Open your Command Prompt or Terminal, navigate to where you saved the file, and run:</p>
+        <pre><code>python hello.py</code></pre>
+        <p>You should see the output <code>Hello, World!</code> printed in your terminal.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>3. Python Basics</summary>
+      <div class="module-content">
+        <h3>Variables and Data Types</h3>
+        <p>A <b>variable</b> is a container for storing a value. Python has several common data types:</p>
+        <ul>
+          <li><b>Integer (<code>int</code>):</b> Whole numbers, like <code>10</code>.</li>
+          <li><b>Float (<code>float</code>):</b> Numbers with a decimal point, like <code>3.14</code>.</li>
+          <li><b>String (<code>str</code>):</b> Text, enclosed in quotes, like <code>"Hello"</code>.</li>
+          <li><b>Boolean (<code>bool</code>):</b> Represents <code>True</code> or <code>False</code>.</li>
+        </ul>
+        <pre><code># Variable assignments
+name = "Alice"
+age = 30
+is_student = False</code></pre>
+
+        <h3>Basic Input and Output</h3>
+        <p>Use the <code>input()</code> function to get user input and <code>print()</code> to display output.</p>
+        <pre><code>user_name = input("Enter your name: ")
+print("Hello, " + user_name + "!")</code></pre>
+
+        <h3>Control Flow (if/elif/else)</h3>
+        <p>Conditional statements allow you to run code based on certain conditions.</p>
+        <pre><code>age = 18
+
+if age >= 18:
+    print("You are an adult.")
+elif age >= 13:
+    print("You are a teenager.")
+else:
+    print("You are a child.")</code></pre>
+
+        <h3>Loops (for/while)</h3>
+        <p>Loops are used to execute a block of code repeatedly.</p>
+        <pre><code># A for loop that prints numbers from 0 to 4
+for i in range(5):
+    print(i)
+
+# A while loop that counts down from 3
+count = 3
+while count > 0:
+    print(count)
+    count -= 1</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>4. Data Structures</summary>
+      <div class="module-content">
+          <h3>Lists</h3>
+          <p>An ordered, mutable (changeable) collection of items, created with square brackets <code>[]</code>.</p>
+          <pre><code>fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits[0])  # Access first item</code></pre>
+
+          <h3>Tuples</h3>
+          <p>An ordered, immutable (unchangeable) collection, created with parentheses <code>()</code>.</p>
+          <pre><code>point = (10, 20)
+print(point[0])</code></pre>
+
+          <h3>Dictionaries</h3>
+          <p>An unordered collection of <code>key:value</code> pairs, created with curly braces <code>{}</code>.</p>
+          <pre><code>student = {"name": "Bob", "age": 25}
+print(student["name"])</code></pre>
+
+          <h3>Sets</h3>
+          <p>An unordered collection of unique items. Duplicates are removed.</p>
+          <pre><code>numbers = [1, 2, 2, 3]
+unique_numbers = set(numbers)
+print(unique_numbers) # Output: {1, 2, 3}</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>5. Functions and Modules</summary>
+      <div class="module-content">
+          <h3>Functions</h3>
+          <p>A function is a reusable block of code defined with the <code>def</code> keyword.</p>
+          <pre><code># A function that takes a parameter and returns a value
+def add_numbers(x, y):
+    return x + y
+
+result = add_numbers(5, 3)
+print(result) # Output: 8</code></pre>
+
+          <h3>Modules</h3>
+          <p>A module is a Python file with functions and variables. You use the <code>import</code> statement to use them.</p>
+          <pre><code># Import the 'math' module to use its functions
+import math
+
+square_root = math.sqrt(16)
+print(square_root) # Output: 4.0</code></pre>
+      </div>
+    </details>
+    
+    <details>
+        <summary>6. Error and File Handling</summary>
+        <div class="module-content">
+            <h3>Error Handling with <code>try...except</code></h3>
+            <p>Handle exceptions gracefully to prevent your program from crashing.</p>
+            <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")</code></pre>
+    
+            <h3>File Handling</h3>
+            <p>Read from and write to files using the <code>with open(...)</code> statement.</p>
+            <p><b>Reading a file:</b></p>
+            <pre><code># Assumes 'data.txt' exists
+with open('data.txt', 'r') as file:
+    content = file.read()
+    print(content)</code></pre>
+            
+            <p><b>Writing to a file:</b></p>
+            <pre><code># 'w' mode overwrites the file
+with open('output.txt', 'w') as file:
+    file.write("Hello from Python!")</code></pre>
+        </div>
+    </details>
+
+    <details>
+        <summary>7. Object-Oriented Programming (OOP)</summary>
+        <div class="module-content">
+            <p>OOP is a way to structure programs using "objects" that contain data (attributes) and code (methods).</p>
+            <h3>Classes and Objects</h3>
+            <p>A <b>class</b> is a blueprint for creating objects. An <b>object</b> is an instance of a class.</p>
+            <pre><code>class Dog:
+    # The constructor method
+    def __init__(self, name, age):
+        self.name = name # attribute
+        self.age = age
+
+    # A method
+    def bark(self):
+        return "Woof!"
+
+# Create an object (instance) of the Dog class
+my_dog = Dog("Buddy", 5)
+
+# Access attributes and call methods
+print(my_dog.name)
+print(my_dog.bark())</code></pre>
+        </div>
+    </details>
+    
+    <details>
+        <summary>8. Working with Libraries</summary>
+        <div class="module-content">
+            <p>Python's power is extended by a vast ecosystem of third-party libraries.</p>
+            <h3>Installing Libraries with Pip</h3>
+            <p><b>Pip</b> is Python's package manager. To install a library like <code>requests</code> (for web requests), run this in your terminal:</p>
+            <pre><code>pip install requests</code></pre>
+            
+            <h3>Using an Installed Library</h3>
+            <p>Once installed, import it into your code.</p>
+            <pre><code>import requests
+
+try:
+    response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
+    data = response.json() # Parse the response
+    print(f"Name: {data['name'].capitalize()}")
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")</code></pre>
+        </div>
+    </details>
+    
+  </div>
+</body>
+</html>

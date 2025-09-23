@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Java Course - Accordion Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f7f7f7;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #d64d2b; /* Java Orange-Red */
+      margin-bottom: 32px;
+    }
+    h3 {
+        color: #333;
+        margin-top: 24px;
+        margin-bottom: 12px;
+    }
+    details {
+      margin-bottom: 16px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      background: #fafafa;
+      transition: box-shadow 0.2s;
+    }
+    details[open] {
+      box-shadow: 0 2px 8px rgba(214, 77, 43, 0.15);
+      background: #fff5f2;
+    }
+    summary {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 14px 18px;
+      cursor: pointer;
+      outline: none;
+      color: #d64d2b;
+      user-select: none;
+    }
+    details[open] summary {
+      color: #b84225;
+    }
+    .module-content {
+      padding: 0 18px 16px 18px;
+      color: #333;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+    code {
+    
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    .BackToHome {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      
+      padding: 32px 24px 32px 24px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #d64d2b;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="BackToHome">
+    <a href="index.html#languages "  class="back-link">&larr; Back</a>
+  </div>
+
+  <div class="container">
+    <h1>A Complete Guide to Java</h1>
+
+    <details open>
+      <summary>1. Introduction to Java</summary>
+      <div class="module-content">
+        <h3>What is Java?</h3>
+        <p>Imagine you write a story in a secret code. That secret code is your Java program. Now, what if you had a special decoder ring that could translate your secret code into any language in the world—English, Spanish, Japanese, etc.? That's what Java does. You write your code once, and a special tool called the <b>Java Virtual Machine (JVM)</b> acts as the decoder ring, allowing your program to run on a Windows computer, a Mac, a Linux machine, or even your Android phone without you having to change a single word of your story.</p>
+        <p>This "write once, run anywhere" philosophy is what made Java incredibly popular.</p>
+        
+        <h3>Why Learn Java?</h3>
+        <ul>
+            <li><b>Make Android Apps:</b> Java is the foundation of Android development. If you've ever wanted to build your own app, learning Java is the first step.</li>
+            <li><b>Power Big Websites:</b> Many of the world's biggest companies, like Spotify and Twitter, use Java to power their websites because it's powerful and can handle millions of users.</li>
+            <li><b>Used in Games:</b> The original version of the mega-popular game Minecraft was built using Java!</li>
+            <li><b>It Teaches You "Proper" Programming:</b> Java is very structured. It forces you to be organized and learn important concepts like Object-Oriented Programming, which will make you a better programmer in any language.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>2. Your First Java Program</summary>
+      <div class="module-content">
+        <h3>Setting up Your Environment</h3>
+        <p>To start building with Java, you need two things: the tools and a workshop.</p>
+        <ol>
+            <li><b>Install the JDK (The Tools):</b> The Java Development Kit (JDK) is your toolbox. It has the compiler (which turns your code into a language the computer understands) and the JVM (which runs your code). You can download it for free.</li>
+            <li><b>Choose an IDE (The Workshop):</b> An Integrated Development Environment is like a super-smart text editor for programmers. It helps you write code faster, finds your mistakes, and keeps your project files organized. For beginners, <b>IntelliJ IDEA Community Edition</b> or <b>VS Code with Java Extensions</b> are fantastic choices.</li>
+        </ol>
+
+        <h3>Writing "Hello, World!"</h3>
+        <p>In Java, every piece of code you write lives inside a "class." Think of a class as a blueprint for something. For now, just know that your program needs a main blueprint to run from.</p>
+        
+        <pre><code>// 1. We declare our blueprint, or 'class'. It must have the same name as the file.
+public class HelloWorld {
+    
+    // 2. This is the 'main method'. It's the front door to your program.
+    //    When you run the code, the JVM looks for this exact line to start.
+    public static void main(String[] args) {
+        
+        // 3. This is our instruction.
+        //    System.out.println tells the computer: "Print the following text to the console."
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+        <p><b>Breaking it down:</b></p>
+        <ul>
+            <li><code>public class HelloWorld</code>: Declares a class named `HelloWorld`. The `public` keyword means it can be accessed from anywhere.</li>
+            <li><code>public static void main(String[] args)</code>: This is the special method that Java looks for to start your program. Don't worry about what `static`, `void`, and `String[] args` mean yet. Just remember this is the starting line.</li>
+            <li><code>System.out.println("...");</code>: This is the command you'll use all the time to print things out to the screen. It's super useful for checking what your program is doing.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>3. Java Basics: Variables, Types, and Operators</summary>
+      <div class="module-content">
+        <h3>Variables and Data Types</h3>
+        <p>In Java, you have to be very specific about the information you want to store. Think of variables like labeled storage boxes. Before you put something in a box, you must put a label on it that says what *kind* of stuff can go inside. This is called being <b>statically-typed</b>.</p>
+        <ul>
+          <li><code>int</code>: For integers (whole numbers), like your age or the number of lives in a game. <code>int userAge = 15;</code></li>
+          <li><code>double</code>: For numbers with decimal points, like a price or a character's height. <code>double itemPrice = 4.99;</code></li>
+          <li><code>boolean</code>: Can only be <code>true</code> or <code>false</code>. Perfect for questions like "is the game over?". <code>boolean isGameOver = false;</code></li>
+          <li><code>char</code>: For a single character, like a grade on a test. Must use single quotes. <code>char grade = 'A';</code></li>
+          <li><code>String</code>: This isn't a primitive type (it's a class!), but it's the most common way to store text. Always use double quotes. <code>String username = "Warrior123";</code></li>
+        </ul>
+        <h3>Operators: The Tools for Working with Variables</h3>
+        <p>Operators are the symbols that perform actions on your variables.</p>
+        <ul>
+            <li><b>Arithmetic:</b> <code>+</code> (add), <code>-</code> (subtract), <code>*</code> (multiply), <code>/</code> (divide), <code>%</code> (modulo - gives you the remainder of a division).</li>
+            <li><b>Assignment:</b> The simple <code>=</code> assigns a value. But you can use shortcuts like <code>+=</code> and <code>-=</code>. For example, <code>score += 10;</code> is the same as <code>score = score + 10;</code>.</li>
+            <li><b>Comparison:</b> These check if something is true or false. <code>==</code> (is equal to), <code>!=</code> (is not equal to), <code>></code> (greater than), <code><</code> (less than), <code>>=</code> (greater than or equal to), <code><=</code> (less than or equal to).</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>4. Getting User Input</summary>
+      <div class="module-content">
+          <h3>Making Interactive Programs with Scanner</h3>
+          <p>So far, our programs just run and print things. To make them truly useful, we need to get input from the person using the program. In Java, the easiest way to do this is with the <code>Scanner</code> class.</p>
+          <p>Think of <code>Scanner</code> as a little robot that listens to what the user types in the console.</p>
+          <pre><code>// 1. First, you must import the Scanner tool from Java's library.
+import java.util.Scanner;
+
+public class UserGreeter {
+    public static void main(String[] args) {
+        // 2. Create your scanner 'robot' and tell it to listen to the keyboard.
+        Scanner inputReader = new Scanner(System.in);
+        
+        // 3. Ask the user a question.
+        System.out.println("What is your name?");
+        
+        // 4. Tell the scanner to wait for the user to type something and press Enter.
+        //    The text they type will be stored in the 'userName' variable.
+        String userName = inputReader.nextLine();
+        
+        // 5. Use the input to give a personalized response!
+        System.out.println("Hello, " + userName + "! Nice to meet you.");
+        
+        // You can also get numbers
+        System.out.println("How old are you?");
+        int age = inputReader.nextInt();
+        System.out.println("You will be " + (age + 1) + " on your next birthday!");
+        
+        // 6. It's good practice to close the scanner when you're done.
+        inputReader.close();
+    }
+}</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>5. Control Flow: Making Decisions</summary>
+      <div class="module-content">
+          <h3>If/Else Statements</h3>
+          <p>This is how your program makes decisions. It's like a fork in the road.</p>
+          <pre><code>int score = 85;
+
+if (score >= 90) {
+    System.out.println("You got an A! Awesome work!");
+} else if (score >= 80) {
+    System.out.println("You got a B. Good job!");
+} else {
+    System.out.println("You can do better next time!");
+}</code></pre>
+        <h3>The Switch Statement</h3>
+        <p>An `if/else` chain is great, but if you're checking one variable against many possible values, a `switch` statement can be cleaner.</p>
+        <pre><code>int dayOfWeek = 3;
+String dayName;
+
+switch (dayOfWeek) {
+    case 1:  dayName = "Monday";    break;
+    case 2:  dayName = "Tuesday";   break;
+    case 3:  dayName = "Wednesday"; break;
+    case 4:  dayName = "Thursday";  break;
+    case 5:  dayName = "Friday";    break;
+    default: dayName = "Weekend!";  break; // 'default' runs if no other case matches
+}
+System.out.println("Today is " + dayName); // Prints "Today is Wednesday"</code></pre>
+
+          <h3>Loops (for/while/do-while)</h3>
+          <p>Loops are for when you need to do something over and over again.</p>
+          <p><b>For Loop:</b> Use this when you know exactly how many times you need to repeat something, like launching 5 rockets.</p>
+          <pre><code>for (int i = 1; i <= 5; i++) {
+    System.out.println("Launching rocket #" + i);
+}</code></pre>
+          <p><b>While Loop:</b> Checks the condition *before* it runs. If the condition is false from the start, the loop never runs.</p>
+          <pre><code>int playerHealth = 30;
+while (playerHealth > 0) {
+    System.out.println("Player health: " + playerHealth);
+    playerHealth -= 10; // player takes 10 damage
+}
+System.out.println("Game Over!");</code></pre>
+        <p><b>Do-While Loop:</b> This is a special type of loop that runs the code *first*, and then checks the condition. This guarantees the loop will run at least one time.</p>
+        <p>This is perfect for things like a menu, where you want to show the options at least once before asking the user if they want to quit.</p>
+        <pre><code>import java.util.Scanner;
+Scanner scanner = new Scanner(System.in);
+String choice;
+
+do {
+    System.out.println("--- MENU ---");
+    System.out.println("1. Start Game");
+    System.out.println("2. View High Scores");
+    System.out.println("Q. Quit");
+    System.out.print("Enter your choice: ");
+    choice = scanner.nextLine();
+    // Here you would add if-statements to handle the choice
+} while (!choice.equalsIgnoreCase("Q")); // Keep looping as long as choice is not 'Q' (case-insensitive)
+
+System.out.println("Thanks for playing!");</code></pre>
+      </div>
+    </details>
+
+    <details>
+        <summary>6. Data Structures: Storing Collections of Data</summary>
+        <div class="module-content">
+            <h3>Arrays</h3>
+            <p>An array is like a bookshelf with a fixed number of slots. You decide how many slots it has when you build it, and that number can't change. You can only put items of the same type in it.</p>
+            <pre><code>String[] highScores = new String[4];
+highScores[0] = "Alice";
+highScores[1] = "Bob";
+// You can also loop through arrays easily
+for (String name : highScores) {
+    System.out.println(name);
+}</code></pre>
+            
+            <h3>ArrayList</h3>
+            <p>An `ArrayList` is like a magical, expandable bag. You can add as many items as you want, and it will grow automatically. It's much more flexible than a basic array.</p>
+            <pre><code>import java.util.ArrayList;
+ArrayList&lt;String&gt; shoppingList = new ArrayList&lt;&gt;();
+shoppingList.add("Milk");
+shoppingList.add("Bread");
+shoppingList.add("Cheese");</code></pre>
+
+            <h3>HashMap</h3>
+            <p>A `HashMap` is like a dictionary. Instead of looking up items by an index number (0, 1, 2...), you look them up using a unique "key" that you define. It's great for storing pairs of information.</p>
+            <pre><code>import java.util.HashMap;
+HashMap&lt;String, Integer&gt; playerScores = new HashMap&lt;&gt;();
+playerScores.put("KnightRider", 1500);
+playerScores.put("LavaGirl", 2100);
+int score = playerScores.get("LavaGirl");
+System.out.println("LavaGirl's score is: " + score); // Prints 2100</code></pre>
+            
+            <h3>Queue</h3>
+            <p>A `Queue` works just like a real-life line. The first person to get in line is the first person to be served. This is called <b>First-In, First-Out (FIFO)</b>.</p>
+            <p>Think about a printer's job queue. The first document you send to print is the first one that comes out of the printer.</p>
+            
+            <pre><code>import java.util.Queue;
+import java.util.LinkedList; // LinkedList is a common way to use a Queue
+
+Queue&lt;String&gt; customerLine = new LinkedList&lt;&gt;();
+
+// People get in line
+customerLine.add("Alice");
+customerLine.add("Bob");
+customerLine.add("Charlie");
+
+// The first person in line is served
+String nowServing = customerLine.remove();
+System.out.println("Now serving: " + nowServing); // Prints "Now serving: Alice"
+
+// See who is next without serving them
+String nextUp = customerLine.peek();
+System.out.println("Next in line is: " + nextUp); // Prints "Next in line is: Bob"</code></pre>
+
+            <h3>Stack</h3>
+            <p>A `Stack` is the opposite of a queue. It's like a stack of plates. You put a new plate on top, and when you need a plate, you take the one from the top. The last plate you put on is the first one you take off. This is called <b>Last-In, First-Out (LIFO)</b>.</p>
+            <p>Think about the "Undo" feature in a text editor. When you hit Undo, it reverses the very last thing you did, not the first.</p>
+            
+            <pre><code>import java.util.Stack;
+
+Stack&lt;String&gt; browserHistory = new Stack&lt;&gt;();
+
+// You visit some websites
+browserHistory.push("google.com");
+browserHistory.push("youtube.com");
+browserHistory.push("your-school-website.edu");
+
+// You hit the "Back" button
+String lastPage = browserHistory.pop();
+System.out.println("Going back to: " + lastPage); // Prints "Going back to: youtube.com"
+
+// Check what the top page is now without going back
+String currentPage = browserHistory.peek();
+System.out.println("Current page is: " + currentPage); // Prints "Current page is: youtube.com"</code></pre>
+        </div>
+    </details>
+
+    <details>
+        <summary>7. Object-Oriented Programming (OOP)</summary>
+        <div class="module-content">
+            <p>This is the most important concept in Java. The idea is to model our programs after real-world things. We'll use the example of creating a car.</p>
+            
+            <h3>Part 1: Classes and Objects</h3>
+            <p>A <b>Class</b> is the blueprint (the design for a car). An <b>Object</b> is the actual car you build from that blueprint.</p>
+            <pre><code>// The Blueprint: Car.java
+public class Car {
+    String color;
+    int year;
+    
+    public Car(String color, int year) {
+        this.color = color;
+        this.year = year;
+    }
+    
+    public void startEngine() {
+        System.out.println("Vroom!");
+    }
+}
+
+// Main Program
+Car myCar = new Car("Red", 2023);
+Car friendsCar = new Car("Blue", 2021);
+myCar.startEngine(); // Vroom!</code></pre>
+
+            <h3>Part 2: Encapsulation (Protecting Your Data)</h3>
+            <p>Encapsulation means keeping the internal workings of your object private and only exposing safe ways to interact with it. Think about a real car: you use the key and pedals, you don't mess with the engine wires directly. We do this with `private` variables and `public` methods (getters and setters).</p>
+            
+            <pre><code>public class BankAccount {
+    private double balance; // private: can only be accessed inside this class
+
+    public BankAccount(double initialBalance) {
+        if (initialBalance > 0) {
+            this.balance = initialBalance;
+        }
+    }
+
+    // A 'getter' to safely read the balance
+    public double getBalance() {
+        return this.balance;
+    }
+
+    // A 'setter' to safely change the balance
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+        }
+    }
+}</code></pre>
+
+            <h3>Part 3: Inheritance (Reusing Blueprints)</h3>
+            <p>Inheritance lets you create a new class based on an existing one. An `ElectricCar` is a type of `Car`. It has everything a normal car has, plus some extra features. This avoids rewriting code.</p>
+            <pre><code>// ElectricCar inherits from Car
+public class ElectricCar extends Car {
+    int batteryCharge;
+    
+    public ElectricCar(String color, int year, int batteryCharge) {
+        super(color, year); // 'super' calls the constructor of the parent class (Car)
+        this.batteryCharge = batteryCharge;
+    }
+
+    public void charge() {
+        System.out.println("Charging...");
+    }
+}
+
+ElectricCar myTesla = new ElectricCar("White", 2025, 80);
+myTesla.startEngine(); // This method was inherited from Car!</code></pre>
+
+            <h3>Part 4: Polymorphism (One Action, Different Behaviors)</h3>
+            <p>This fancy word means "many forms." It lets different objects respond to the same command in different ways. For example, if you tell a `Dog` to `makeSound()`, it will bark. If you tell a `Cat` to `makeSound()`, it will meow.</p>
+            <pre><code>// In the Car class
+public void startEngine() {
+    System.out.println("Vroom! The gas engine starts.");
+}
+
+// In the ElectricCar class, we OVERRIDE the method
+@Override
+public void startEngine() {
+    System.out.println("..."); // Electric cars are silent
+}</code></pre>
+        </div>
+    </details>
+    
+    <details>
+        <summary>8. Exception Handling: Your Program's Safety Net</summary>
+        <div class="module-content">
+            <p>Sometimes, things go wrong in your code that you can't predict. If a user types "abc" when you asked for a number, your program will crash! An <b>exception</b> is an error that disrupts the normal flow of the program.</p>
+            <p>To prevent crashing, you use a `try-catch` block. It's like telling your program: "Hey, <b>try</b> to run this code. If it fails, don't panic. Just <b>catch</b> the error and run this other code instead."</p>
+            <pre><code>try {
+    // TRY to do this...
+    int[] numbers = {10, 20, 30};
+    System.out.println(numbers[5]); // This will fail
+} catch (ArrayIndexOutOfBoundsException e) {
+    // If that specific error happens, CATCH it and do this instead.
+    System.out.println("Whoops! You tried to access an array slot that doesn't exist.");
+}
+
+System.out.println("Program continues without crashing!");</code></pre>
+        </div>
+    </details>
+
+    <details>
+      <summary>9. What's Next?</summary>
+      <div class="module-content">
+        <h3>You've Learned the Basics!</h3>
+        <p>Congratulations! You now have a strong foundation in the Java programming language. You understand variables, loops, data structures, and the core principles of Object-Oriented Programming.</p>
+        <p>This is just the beginning. From here, you can explore many exciting paths:</p>
+        <ul>
+            <li><b>Build Android Apps:</b> Start learning with Android Studio and see your code come to life on a phone.</li>
+            <li><b>Create Desktop Apps:</b> Look into libraries like JavaFX or Swing to build applications with graphical user interfaces.</li>
+            <li><b>Explore Game Development:</b> Check out libraries like libGDX to start building your own games.</li>
+            <li><b>Dive into Web Development:</b> Learn about the Spring Framework, a powerful tool for building large-scale web applications.</li>
+        </ul>
+        <p>The key is to keep practicing. Think of a small project you want to build—like a simple calculator, a to-do list app, or a text-based adventure game—and try to build it. Happy coding!</p>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>
+

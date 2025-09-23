@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Roadmaps - अध्यYAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Re-linking main stylesheet for consistency -->
+    <style>
+        /* Custom Styles for Roadmaps */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .page-transition {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .page-hidden {
+            opacity: 0;
+            transform: scale(0.98);
+            display: none;
+        }
+        .page-visible {
+            opacity: 1;
+            transform: scale(1);
+            display: block;
+        }
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: #d1d5db;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 1rem 2.5rem;
+            box-sizing: border-box;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 2.25rem;
+            width: 20px;
+            height: 20px;
+            background-color: #f3f4f6;
+            border: 4px solid #3b82f6;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(odd)::after { right: -10px; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-item:nth-child(even)::after { left: -10px; }
+        .timeline-content.active {
+             transform: scale(1.05);
+             box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3), 0 8px 10px -6px rgba(59, 130, 246, 0.3);
+        }
+        .timeline-content-clickable { cursor: pointer; }
+        #details-modal { transition: opacity 0.3s ease; }
+        #details-modal-content { transition: transform 0.3s ease; }
+
+        @media screen and (max-width: 768px) {
+            .timeline-container::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 10px; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    
+         <header class="header bg-white shadow-md">
+   
+        <nav class="desktop-nav">
+             <ul>
+                <li><a href="index.html">← Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <!-- ============== SELECTION PAGE ============== -->
+        <div id="selection-page" class="page-visible">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">Educational Roadmaps</h1>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Choose a path to start your journey. Each roadmap provides a step-by-step guide to mastering a skill.</p>
+                </div>
+                
+                <div class="flex justify-center flex-wrap gap-3 mb-10">
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="all">All</button>
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="web">Web</button>
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="ai-ml">AI/ML</button>
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="devops">DevOps</button>
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="core">Core Skills</button>
+                    <button class="filter-btn bg-white hover:bg-blue-500 text-gray-700 hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 shadow-sm border border-gray-200" data-filter="specialized">Specialized</button>
+                </div>
+
+                <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="web">
+                        <div class="p-6">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Web</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Frontend Developer</h3>
+                            <p class="text-gray-600 mb-6">Build beautiful and interactive user interfaces for websites and web applications.</p>
+                            <button class="access-btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="frontend">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="web">
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Web</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Backend Developer</h3>
+                            <p class="text-gray-600 mb-6">Master server-side logic, databases, and APIs to power applications from behind the scenes.</p>
+                            <button class="access-btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="backend">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="web">
+                        <div class="p-6">
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Web</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Full Stack Developer</h3>
+                            <p class="text-gray-600 mb-6">Become a versatile developer who can handle both the frontend and backend of an application.</p>
+                            <button class="access-btn w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="fullstack">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="core">
+                        <div class="p-6">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Core</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Data Structures & Algorithms</h3>
+                            <p class="text-gray-600 mb-6">Strengthen your problem-solving skills, the foundation of all software engineering.</p>
+                            <button class="access-btn w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="dsa">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="ai-ml">
+                        <div class="p-6">
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">AI/ML</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">AI Engineer</h3>
+                            <p class="text-gray-600 mb-6">Build and deploy intelligent systems and machine learning models at scale.</p>
+                            <button class="access-btn w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="ai-engineer">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="ai-ml">
+                        <div class="p-6">
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">AI/ML</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Machine Learning</h3>
+                            <p class="text-gray-600 mb-6">Specialize in algorithms that allow computers to learn from and make predictions on data.</p>
+                            <button class="access-btn w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="machine-learning">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="specialized">
+                        <div class="p-6">
+                            <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Security</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Cyber Security Expert</h3>
+                            <p class="text-gray-600 mb-6">Protect computer systems and networks from theft, damage, and unauthorized access.</p>
+                            <button class="access-btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="cyber-security">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="mobile">
+                        <div class="p-6">
+                            <span class="inline-block bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Mobile</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Android Developer</h3>
+                            <p class="text-gray-600 mb-6">Create applications for the world's most popular mobile operating system using Kotlin.</p>
+                            <button class="access-btn w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="android">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="mobile">
+                        <div class="p-6">
+                            <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Mobile</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">iOS Developer</h3>
+                            <p class="text-gray-600 mb-6">Build elegant and performant applications for iPhone and iPad using Swift and SwiftUI.</p>
+                            <button class="access-btn w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="ios">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="devops">
+                        <div class="p-6">
+                            <span class="inline-block bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">DevOps</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">DevOps Engineer</h3>
+                            <p class="text-gray-600 mb-6">Bridge the gap between development and operations through automation and CI/CD.</p>
+                            <button class="access-btn w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="devops">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="specialized">
+                        <div class="p-6">
+                            <span class="inline-block bg-lime-100 text-lime-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Gaming</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Game Developer</h3>
+                            <p class="text-gray-600 mb-6">Bring virtual worlds to life using game engines like Unity or Unreal Engine.</p>
+                            <button class="access-btn w-full bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="game-dev">View Roadmap</button>
+                        </div>
+                    </div>
+                    <div class="resource-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" data-type="specialized">
+                        <div class="p-6">
+                            <span class="inline-block bg-cyan-100 text-cyan-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">Web3</span>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Blockchain Developer</h3>
+                            <p class="text-gray-600 mb-6">Build decentralized applications (DApps) and smart contracts on the blockchain.</p>
+                            <button class="access-btn w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300" data-roadmap="blockchain">View Roadmap</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============== ROADMAP TIMELINE PAGE ============== -->
+        <div id="timeline-page" class="page-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex justify-between items-center mb-8">
+                    <button id="back-to-selection-btn" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center shadow-sm border border-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                        Back to All Roadmaps
+                    </button>
+                    <h1 id="roadmap-title" class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 text-center flex-grow"></h1>
+                </div>
+                <div id="roadmap-content" class="timeline-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-blue-500 hover:bg-blue-600 text-white font-bold p-4 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+    </button>
+    
+    <!-- Details Modal -->
+    <div id="details-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+        <div id="details-modal-content" class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-95">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h2 id="modal-title" class="text-2xl font-bold text-gray-900"></h2>
+                <button id="modal-close-btn" class="text-gray-400 hover:text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="p-6">
+                <p id="modal-details" class="text-gray-600 mb-6"></p>
+                <a id="modal-link" href="#" target="_blank" rel="noopener" class="inline-block w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roadmaps = {
+                frontend: {
+                    title: "Frontend Developer Roadmap",
+                    steps: [
+                        { title: "Internet Basics", description: "Understand how the internet works: HTTP/HTTPS, browsers, DNS, and hosting.", details: "This is the foundation. Learn how data travels across the web, what domain names are, and the role of web servers. Understanding the request/response cycle is crucial.", link: "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work" },
+                        { title: "HTML, CSS, & JavaScript", description: "The core building blocks of the web.", details: "HTML structures the content, CSS styles it, and JavaScript makes it interactive. Master these three, and you can build any website. Focus on semantic HTML5, modern CSS like Flexbox and Grid, and ES6+ JavaScript.", link: "https://developer.mozilla.org/en-US/docs/Learn" },
+                        { title: "Version Control (Git)", description: "Learn Git and GitHub to manage your code.", details: "Git is an essential tool for tracking changes in your code. GitHub is a platform to host your projects and collaborate with others. Every developer must know this.", link: "https://git-scm.com/book/en/v2" },
+                        { title: "Choose a Framework", description: "Pick a modern frontend framework like React, Vue, or Angular.", details: "Frameworks provide structure and tools to build complex, single-page applications efficiently. React is currently the most popular, but Vue and Angular are also excellent choices.", link: "https://reactjs.org/" },
+                        { title: "Styling & Component Libraries", description: "Master CSS-in-JS, CSS Preprocessors, and UI libraries.", details: "Go beyond basic CSS. Learn Tailwind CSS for utility-first styling, Sass for more powerful stylesheets, or Styled Components for scoping styles directly in your JavaScript components.", link: "https://tailwindcss.com/" },
+                        { title: "Package Managers", description: "Use npm or yarn to manage project dependencies.", details: "Modern web development relies on many third-party libraries. Package managers make it easy to install, update, and manage these 'packages' in your project.", link: "https://docs.npmjs.com/" },
+                        { title: "Testing", description: "Write tests for your applications to ensure code quality.", details: "Testing prevents bugs and ensures your application works as expected. Learn to write unit, integration, and end-to-end tests using tools like Jest or Vitest.", link: "https://jestjs.io/" },
+                    ]
+                },
+                backend: {
+                    title: "Backend Developer Roadmap",
+                    steps: [
+                        { title: "Choose a Language", description: "Select a language like Node.js, Python, or Go.", details: "The backend can be written in many languages. Node.js is great for JavaScript developers, Python is excellent for data science and web development, and Go is known for its performance.", link: "https://nodejs.org/" },
+                        { title: "Understand Databases", description: "Learn about relational (SQL) and NoSQL databases.", details: "Data needs to be stored somewhere. Learn SQL databases like PostgreSQL for structured data and NoSQL databases like MongoDB for flexible, unstructured data.", link: "https://www.mongodb.com/nosql-explained" },
+                        { title: "Learn a Framework", description: "Master a backend framework like Express or Django.", details: "Frameworks streamline backend development. Express is the standard for Node.js, while Django is a powerful 'batteries-included' framework for Python.", link: "https://expressjs.com/" },
+                        { title: "APIs & Communication", description: "Build and consume RESTful and GraphQL APIs.", details: "APIs (Application Programming Interfaces) are how the frontend and backend communicate. Master the principles of REST and explore modern alternatives like GraphQL.", link: "https://graphql.org/" },
+                        { title: "Authentication & Security", description: "Implement user authentication and learn about security.", details: "Learn how to securely manage user accounts, passwords, and sessions using techniques like JWT (JSON Web Tokens) and OAuth. Protect against common vulnerabilities.", link: "https://oauth.net/" },
+                    ]
+                },
+                fullstack: {
+                    title: "Full Stack Developer Roadmap",
+                    steps: [
+                        { title: "Frontend Fundamentals", description: "Complete the Frontend Developer roadmap first.", details: "A full stack developer must be proficient in building user interfaces. Follow the complete frontend path, including HTML, CSS, JavaScript, and a modern framework like React.", link: "#" },
+                        { title: "Backend Fundamentals", description: "Complete the Backend Developer roadmap next.", details: "After mastering the frontend, dive into server-side development. Learn a language, framework, databases, and how to build APIs.", link: "#" },
+                        { title: "Full Stack Architecture", description: "Understand how frontend and backend work together.", details: "Learn about client-server architecture, state management across the stack (e.g., using React Query or Apollo Client), and how to handle data flow.", link: "https://medium.com/swlh/client-server-architecture-29312d64353d" },
+                        { title: "Deployment & DevOps", description: "Learn to deploy a full stack application.", details: "Understand how to deploy both your frontend (e.g., on Vercel or Netlify) and backend (e.g., on Heroku or AWS) and connect them. Learn about CI/CD pipelines.", link: "https://www.jenkins.io/doc/book/pipeline/" },
+                    ]
+                },
+                dsa: {
+                    title: "Data Structures & Algorithms Roadmap",
+                    steps: [
+                        { title: "Complexity Analysis", description: "Learn Big O, Big Omega, and Big Theta notation.", details: "Understand how to analyze the time and space complexity of an algorithm. This is crucial for writing efficient code.", link: "https://www.geeksforgeeks.org/analysis-of-algorithms-big-o-analysis/" },
+                        { title: "Core Data Structures", description: "Master Arrays, Linked Lists, Stacks, Queues, and Hash Tables.", details: "These are the fundamental building blocks for storing and organizing data. Understand their operations, trade-offs, and implementations.", link: "https://www.coursera.org/learn/data-structures" },
+                        { title: "Advanced Data Structures", description: "Learn Trees, Tries, Heaps, and Graphs.", details: "Move on to more complex structures used for problems involving hierarchy, searching, and network modeling.", link: "https://www.geeksforgeeks.org/advanced-data-structures/" },
+                        { title: "Sorting & Searching Algorithms", description: "Study algorithms like Merge Sort, Quick Sort, and Binary Search.", details: "Learn various algorithms for organizing and retrieving data efficiently. Understand their performance characteristics.", link: "https://www.toptal.com/developers/sorting-algorithms" },
+                        { title: "Graph Algorithms", description: "Learn Breadth-First Search (BFS), Depth-First Search (DFS), Dijkstra's, etc.", details: "Graphs are used to model networks. Learn algorithms to traverse graphs, find shortest paths, and detect cycles.", link: "https://www.khanacademy.org/computing/computer-science/algorithms/graph-search" },
+                        { title: "Dynamic Programming", description: "Understand how to solve complex problems by breaking them down.", details: "Dynamic Programming is a powerful technique for solving optimization problems. Master concepts like memoization and tabulation.", link: "https://www.geeksforgeeks.org/dynamic-programming/" },
+                    ]
+                },
+                'ai-engineer': {
+                    title: "AI Engineer Roadmap",
+                    steps: [
+                         { title: "Foundations in ML & Data Science", description: "Complete the Machine Learning roadmap.", details: "An AI Engineer must have a strong grasp of ML concepts, algorithms, and data preprocessing. The ML roadmap is a prerequisite.", link: "#" },
+                        { title: "MLOps (Machine Learning Operations)", description: "Learn to operationalize ML models.", details: "MLOps is the practice of deploying and maintaining ML models in production reliably and efficiently. It covers tools for versioning, monitoring, and automation.", link: "https://ml-ops.org/" },
+                        { title: "Cloud AI Services", description: "Master AI/ML platforms from cloud providers (AWS, GCP, Azure).", details: "Learn to use services like AWS SageMaker, Google AI Platform, or Azure Machine Learning to build, train, and deploy models at scale.", link: "https://aws.amazon.com/sagemaker/" },
+                        { title: "Big Data Technologies", description: "Work with large-scale data using Spark and Hadoop.", details: "AI models are often trained on massive datasets. Learn tools like Apache Spark to process and analyze big data efficiently.", link: "https://spark.apache.org/" },
+                        { title: "Model Deployment & Serving", description: "Learn to serve models via APIs.", details: "Package your trained models and expose them as an API using tools like Flask, FastAPI, or dedicated model servers like TensorFlow Serving.", link: "https://www.tensorflow.org/tfx/guide/serving" },
+                    ]
+                },
+                'machine-learning': {
+                    title: "Machine Learning Roadmap",
+                    steps: [
+                        { title: "Programming & Math Foundations", description: "Master Python, NumPy, Pandas, Linear Algebra, and Statistics.", details: "ML is built on a mathematical foundation. A strong grasp of Python programming and key math concepts is essential.", link: "https://www.deeplearning.ai/courses/machine-learning-specialization/" },
+                        { title: "Data Wrangling & Visualization", description: "Learn to clean, process, and visualize data.", details: "Use Pandas for data manipulation and libraries like Matplotlib and Seaborn to explore and understand your dataset before modeling.", link: "https://www.kaggle.com/learn/data-visualization" },
+                        { title: "Core Machine Learning Algorithms", description: "Understand algorithms like Regression, Classification, Clustering.", details: "Learn the theory and practice behind the most common supervised and unsupervised learning algorithms using Scikit-Learn.", link: "https://scikit-learn.org/stable/user_guide.html" },
+                        { title: "Deep Learning", description: "Dive into neural networks using TensorFlow or PyTorch.", details: "For complex problems, learn to build and train neural networks, including Convolutional Neural Networks (CNNs) for images and Recurrent Neural Networks (RNNs) for text.", link: "https://www.tensorflow.org/tutorials" },
+                        { title: "Model Evaluation & Tuning", description: "Learn to measure performance and improve your models.", details: "Master techniques like cross-validation, and metrics like accuracy, precision, and recall. Learn how to tune hyperparameters to optimize model performance.", link: "https://scikit-learn.org/stable/modules/model_evaluation.html" },
+                    ]
+                },
+                 'cyber-security': {
+                    title: "Cyber Security Expert Roadmap",
+                    steps: [
+                        { title: "Networking Fundamentals", description: "Master the OSI model, TCP/IP, and networking protocols.", details: "Understanding how networks function is the absolute foundation of cyber security. Learn about IP addresses, DNS, HTTP, and firewalls.", link: "https://www.comptia.org/certifications/network" },
+                        { title: "Operating Systems Security", description: "Learn to secure Windows and Linux systems.", details: "Understand file permissions, user access control, process management, and how to harden operating systems against attacks.", link: "https://tryhackme.com/path/outline/linux-fundamentals" },
+                        { title: "Web Application Security", description: "Learn about common vulnerabilities like SQL Injection, XSS, CSRF.", details: "Study the OWASP Top 10 to understand the most critical security risks to web applications and how to mitigate them.", link: "https://owasp.org/www-project-top-ten/" },
+                        { title: "Ethical Hacking & Penetration Testing", description: "Learn to think like a hacker to find and fix vulnerabilities.", details: "Use tools like Metasploit, Nmap, and Burp Suite to conduct penetration tests and assess system security.", link: "https://www.offensive-security.com/pwk-oscp/" },
+                        { title: "Cryptography", description: "Understand encryption, hashing, and public/private key infrastructure.", details: "Learn the principles behind securing data at rest and in transit. Understand how cryptographic protocols like TLS/SSL work.", link: "https://www.khanacademy.org/computing/computer-science/cryptography" },
+                    ]
+                },
+                 android: {
+                    title: "Android Developer Roadmap",
+                    steps: [
+                        { title: "Learn Kotlin", description: "Master Kotlin, the official language for Android development.", details: "Kotlin is a modern, concise, and safe programming language. It's the recommended language for building new Android apps.", link: "https://kotlinlang.org/docs/home.html" },
+                        { title: "Android Studio & Core Components", description: "Get familiar with the IDE and fundamental app components.", details: "Learn how to use Android Studio. Understand Activities, Services, Broadcast Receivers, and Content Providers.", link: "https://developer.android.com/studio" },
+                        { title: "UI Development with Jetpack Compose", description: "Build modern, native UIs with Jetpack Compose.", details: "Jetpack Compose is Android's modern declarative UI toolkit. Learn how to build beautiful, reactive user interfaces with less code.", link: "https://developer.android.com/jetpack/compose" },
+                        { title: "Navigation", description: "Implement navigation between screens in your app.", details: "Use the Jetpack Navigation component to handle all in-app navigation, including passing data between screens and handling deep links.", link: "https://developer.android.com/guide/navigation" },
+                        { title: "Networking & Data Persistence", description: "Fetch data from the internet and store it locally.", details: "Use libraries like Retrofit for networking and Room for local database storage. Understand how to manage data in an offline-first manner.", link: "https://square.github.io/retrofit/" },
+                        { title: "Architecture (MVVM)", description: "Structure your app using modern architecture patterns.", details: "Learn the Model-View-ViewModel (MVVM) architecture pattern using Jetpack ViewModel and LiveData/Flow to create scalable and maintainable apps.", link: "https://developer.android.com/jetpack/guide" },
+                    ]
+                },
+                 ios: {
+                    title: "iOS Developer Roadmap",
+                    steps: [
+                        { title: "Learn Swift", description: "Master Swift, the powerful and intuitive language for Apple platforms.", details: "Swift is the modern, fast, and safe programming language for building apps for iOS, macOS, watchOS, and tvOS.", link: "https://www.swift.org/documentation/" },
+                        { title: "Xcode & Core Concepts", description: "Get familiar with the IDE and iOS development basics.", details: "Learn your way around Xcode, Apple's integrated development environment. Understand concepts like Storyboards, View Controllers, and the app lifecycle.", link: "https://developer.apple.com/xcode/" },
+                        { title: "UI Development with SwiftUI", description: "Build modern, declarative UIs with SwiftUI.", details: "SwiftUI is Apple's latest framework for building user interfaces across all Apple platforms with less code and a live preview.", link: "https://developer.apple.com/xcode/swiftui/" },
+                        { title: "Networking", description: "Fetch data from APIs and the internet.", details: "Learn to make network requests to retrieve data from remote servers using native APIs like URLSession or libraries like Alamofire.", link: "https://developer.apple.com/documentation/foundation/urlsession" },
+                        { title: "Data Persistence", description: "Store data locally on the device.", details: "Learn how to save data permanently using frameworks like Core Data, SwiftData, or simpler methods like UserDefaults and Codable.", link: "https://developer.apple.com/documentation/swiftdata" },
+                        { title: "Architecture (MVVM)", description: "Structure your app with the MVVM pattern.", details: "Adopt the Model-View-ViewModel (MVVM) architecture to separate your UI from your business logic, leading to cleaner and more testable code.", link: "https://www.raywenderlich.com/34-design-patterns-by-tutorials-mvvm" },
+                    ]
+                },
+                 devops: {
+                    title: "DevOps Engineer Roadmap",
+                    steps: [
+                        { title: "Linux & Networking Fundamentals", description: "Master the command line, scripting, and networking.", details: "DevOps heavily relies on Linux. Master shell scripting (Bash), system administration, and networking concepts.", link: "https://www.linuxfoundation.org/training/courses/essentials-of-linux-system-administration-lfs201/" },
+                        { title: "Infrastructure as Code (IaC)", description: "Automate infrastructure provisioning with tools like Terraform.", details: "Define and manage your infrastructure (servers, networks, databases) as code, allowing for versioning and repeatable setups.", link: "https://www.terraform.io/intro" },
+                        { title: "CI/CD (Continuous Integration/Continuous Deployment)", description: "Automate the build, test, and deployment pipeline.", details: "Use tools like Jenkins, GitLab CI, or GitHub Actions to automatically build and deploy your applications whenever code is changed.", link: "https://www.atlassian.com/continuous-delivery/ci-cd" },
+                        { title: "Containers & Orchestration", description: "Master Docker and Kubernetes.", details: "Package applications into containers with Docker for consistency. Use Kubernetes to automate the deployment, scaling, and management of containerized applications.", link: "https://kubernetes.io/docs/home/" },
+                        { title: "Monitoring & Logging", description: "Monitor application performance and centralize logs.", details: "Use tools like Prometheus for monitoring metrics, Grafana for visualization, and the ELK stack (Elasticsearch, Logstash, Kibana) for logging.", link: "https://prometheus.io/" },
+                    ]
+                },
+                 'game-dev': {
+                    title: "Game Developer Roadmap",
+                    steps: [
+                        { title: "Choose a Game Engine", description: "Select a game engine like Unity or Unreal Engine.", details: "Game engines provide the core technology for rendering, physics, and asset management. Unity (C#) is great for indie and mobile games, while Unreal (C++) is known for high-fidelity graphics.", link: "https://unity.com/learn" },
+                        { title: "Learn a Programming Language", description: "Master C# for Unity or C++ for Unreal Engine.", details: "Your chosen engine will determine the language you need to learn. These languages are used to script game logic, character behavior, and mechanics.", link: "https://learn.microsoft.com/en-us/cpp/cpp/" },
+                        { title: "Game Design Principles", description: "Understand what makes a game fun and engaging.", details: "Learn about game mechanics, level design, player experience (UX), and game loops. A good game is more than just good code.", link: "https://www.gamedeveloper.com/design" },
+                        { title: "2D & 3D Art Asset Pipeline", description: "Learn how models, textures, and animations are created and imported.", details: "While you may not be an artist, you need to understand the pipeline for creating and integrating art assets into the game engine.", link: "https://www.blender.org/" },
+                        { title: "Physics & Mathematics", description: "Understand the math behind game development.", details: "A solid foundation in linear algebra (vectors, matrices) and physics is essential for creating game mechanics, character movement, and special effects.", link: "https://gabrielgambetta.com/computer-graphics-from-scratch/" },
+                    ]
+                },
+                 blockchain: {
+                    title: "Blockchain Developer Roadmap",
+                    steps: [
+                        { title: "Blockchain Fundamentals", description: "Understand what a blockchain is, decentralization, and consensus.", details: "Learn the core concepts: how blocks are linked, what a distributed ledger is, and the difference between proof-of-work and proof-of-stake.", link: "https://ethereum.org/en/developers/docs/intro-to-ethereum/" },
+                        { title: "Learn Solidity", description: "Master Solidity, the main language for writing Ethereum smart contracts.", details: "Solidity is an object-oriented, high-level language for implementing smart contracts on the Ethereum Virtual Machine (EVM).", link: "https://soliditylang.org/docs/" },
+                        { title: "Smart Contract Development & Deployment", description: "Learn to write, test, and deploy smart contracts using Hardhat or Truffle.", details: "Use development environments like Hardhat to compile, test, and deploy your Solidity code to a blockchain network.", link: "https://hardhat.org/" },
+                        { title: "Frontend DApp Development", description: "Connect a frontend application to your smart contracts.", details: "Use JavaScript libraries like Ethers.js or Web3.js to allow users to interact with your smart contracts through a web interface.", link: "https://docs.ethers.org/v5/" },
+                        { title: "Decentralized Finance (DeFi)", description: "Explore the world of DeFi protocols and concepts.", details: "Understand the building blocks of decentralized finance, such as decentralized exchanges (DEXs), lending protocols, and staking.", link: "https://www.coinbase.com/learn/crypto-basics/what-is-defi" },
+                    ]
+                }
+            };
+
+            const selectionPage = document.getElementById('selection-page');
+            const timelinePage = document.getElementById('timeline-page');
+            const accessButtons = document.querySelectorAll('.access-btn');
+            const backButton = document.getElementById('back-to-selection-btn');
+            const roadmapContent = document.getElementById('roadmap-content');
+            const roadmapTitle = document.getElementById('roadmap-title');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const resourcesGrid = document.getElementById('resources-grid');
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            
+            const detailsModal = document.getElementById('details-modal');
+            const modalContent = document.getElementById('details-modal-content');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDetails = document.getElementById('modal-details');
+            const modalLink = document.getElementById('modal-link');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+
+            function showRoadmap(roadmapId) {
+                const roadmapData = roadmaps[roadmapId];
+                if (!roadmapData) return;
+
+                roadmapTitle.textContent = roadmapData.title;
+
+                roadmapContent.innerHTML = roadmapData.steps.map((step, index) => `
+                    <div class="timeline-item">
+                        <div class="timeline-content timeline-content-clickable bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 transition-all duration-300" data-roadmap-id="${roadmapId}" data-step-index="${index}">
+                            <span class="text-sm font-semibold text-blue-500">Step ${index + 1}</span>
+                            <h3 class="text-xl font-bold mt-1 mb-2 text-gray-900">${step.title}</h3>
+                            <p class="text-gray-600">${step.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+                
+                selectionPage.classList.remove('page-visible');
+                selectionPage.classList.add('page-hidden');
+                timelinePage.classList.remove('page-hidden');
+                timelinePage.classList.add('page-visible');
+                window.scrollTo(0, 0);
+            }
+
+            function showRoadmapSelection() {
+                timelinePage.classList.remove('page-visible');
+                timelinePage.classList.add('page-hidden');
+                selectionPage.classList.remove('page-hidden');
+                selectionPage.classList.add('page-visible');
+                roadmapContent.innerHTML = '';
+                roadmapTitle.textContent = '';
+            }
+            
+            function filterCards(filter) {
+                const cards = resourcesGrid.querySelectorAll('.resource-card');
+                cards.forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.type === filter) ? 'block' : 'none';
+                });
+            }
+
+            function handleScroll() {
+                const timelineItems = document.querySelectorAll('#roadmap-content .timeline-content');
+                let activeFound = false;
+                
+                timelineItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    if (itemTop > window.innerHeight * 0.2 && itemTop < window.innerHeight * 0.6 && !activeFound) {
+                        item.classList.add('active');
+                        activeFound = true;
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                }
+            }
+
+            function showStepDetails(roadmapId, stepIndex) {
+                const stepData = roadmaps[roadmapId]?.steps[stepIndex];
+                if (!stepData) return;
+                
+                if (stepData.link === "#") {
+                    const targetRoadmap = roadmaps[roadmapId]?.steps[0].title.toLowerCase().includes('frontend') ? 'frontend' : 'backend';
+                     showRoadmap(targetRoadmap);
+                     hideStepDetails();
+                     return;
+                }
+
+                modalTitle.textContent = stepData.title;
+                modalDetails.textContent = stepData.details;
+                modalLink.href = stepData.link;
+
+                detailsModal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
+            }
+
+            function hideStepDetails() {
+                detailsModal.classList.add('opacity-0');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    detailsModal.classList.add('pointer-events-none');
+                }, 300);
+            }
+
+            accessButtons.forEach(button => button.addEventListener('click', () => showRoadmap(button.dataset.roadmap)));
+            backButton.addEventListener('click', showRoadmapSelection);
+            filterButtons.forEach(button => button.addEventListener('click', () => filterCards(button.dataset.filter)));
+            window.addEventListener('scroll', handleScroll);
+            scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            roadmapContent.addEventListener('click', (e) => {
+                const timelineContent = e.target.closest('.timeline-content-clickable');
+                if (timelineContent) {
+                    const { roadmapId, stepIndex } = timelineContent.dataset;
+                    showStepDetails(roadmapId, parseInt(stepIndex));
+                }
+            });
+            modalCloseBtn.addEventListener('click', hideStepDetails);
+            detailsModal.addEventListener('click', (e) => {
+                if (e.target === detailsModal) {
+                    hideStepDetails();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>अध्यYAN AI Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS is unchanged from the previous version, so it's omitted here for brevity */
+        /* Just copy the full CSS from the previous response */
+        body { margin: 0; font-family: sans-serif; background-color: #f0f2f5; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: linear-gradient(to right, #4ab3ff, #007bff); color: white; padding: 15px 20px; display: flex; justify-content: flex-start; align-items: center; z-index: 1000; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .navbar-text { font-size: 1.5em; font-weight: bold; text-decoration: none; color: inherit; }
+        #content-container { padding-top: 80px; display: flex; flex-direction: column; align-items: center; }
+        #chat-container { width: 90%; max-width: 600px; height: 70vh; border: 1px solid #ddd; border-radius: 10px; margin: 20px auto; display: flex; flex-direction: column; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        #chat-log { flex: 1; padding: 20px; overflow-y: auto; word-wrap: break-word; line-height: 1.5; scroll-behavior: smooth; }
+        .message { margin-bottom: 15px; padding: 10px 15px; border-radius: 18px; display: flex; align-items: flex-start; max-width: 80%; }
+        .user-message { background-color: #007bff; color: white; margin-left: auto; flex-direction: row-reverse; }
+        .bot-message { background-color: #e9e9eb; color: #333; margin-right: auto; }
+        .message-content { margin: 0 10px; max-width: 100%; overflow-x: auto; }
+        .message strong { display: block; margin-bottom: 4px; font-size: 0.9em; color: #555; }
+        .user-message strong { color: #e0e0e0; }
+        #input-area { display: flex; padding: 10px; border-top: 1px solid #ddd; }
+        #user-input { flex-grow: 1; padding: 12px; border: 1px solid #ccc; border-radius: 20px; font-size: 16px; margin-right: 10px; }
+        #user-input:focus { outline: none; border-color: #007bff; }
+        #send-button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; }
+        #send-button:hover { background-color: #0056b3; }
+        #heading { text-align: center; font-size: 2em; font-weight: bold; background: linear-gradient(to right, #4ab3ff, #007bff); -webkit-background-clip: text; color: transparent; margin-bottom: 10px; }
+        #sub-heading { text-align: center; font-size: 0.9em; color: #555; margin-bottom: 20px; }
+        .message-content pre { background: #272822; color: #f8f8f2; padding: 12px; border-radius: 6px; overflow-x: auto; }
+        .message-content code { color: #007bff; padding: 2px 4px; border-radius: 4px; }
+        .message-content table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+        .message-content th, .message-content td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+</head>
+<body>
+    <div class="navbar" onclick="window.location.href='index.html'">
+        <a href="index.html" class="navbar-text">Back</a>
+    </div>
+
+    <div id="content-container">
+        <h1 id="heading">अध्यYAN AI Assistant</h1>
+        <p id="sub-heading">Your personal AI assistant for Computer Science.</p>
+        <div id="chat-container">
+            <div id="chat-log"></div>
+            <div id="input-area">
+                <input type="text" id="user-input" placeholder="Ask your question..." />
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const chatLog = document.getElementById("chat-log");
+    const userInput = document.getElementById("user-input");
+    const sendButton = document.getElementById("send-button");
+    const API_ENDPOINT = "http://localhost:5000/chat";
+    //const API_ENDPOINT = "/api/chat";
+    const converter = new showdown.Converter({ tables: true, strikethrough: true });
+
+    let sessionId = null;
+    let isWaitingForResponse = false; // Prevents sending multiple messages
+
+    async function sendMessage() {
+        const userQuestion = userInput.value.trim();
+        if (userQuestion === "" || isWaitingForResponse) return;
+
+        isWaitingForResponse = true;
+        appendMessage('You', userQuestion, 'user');
+        userInput.value = "";
+
+        // Create a new message container for the bot's response
+        const botMessageContainer = appendMessage('अध्यYAN AI', '', 'bot');
+        const botContentDiv = botMessageContainer.querySelector('.message-content');
+        botContentDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'; // Initial loading indicator
+        let fullResponse = "";
+
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: userQuestion, sessionId: sessionId }),
+            });
+
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+            // --- KEY CHANGE: Read the response as a stream ---
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let firstChunk = true;
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+
+                const chunkText = decoder.decode(value);
+                
+                // Our custom protocol: first line is the session ID
+                if (firstChunk) {
+                    const lines = chunkText.split('\n');
+                    const header = lines.shift(); // remove the first line
+                    if (header.startsWith("session_id:")) {
+                        sessionId = header.split(":")[1];
+                    }
+                    fullResponse += lines.join('\n');
+                    firstChunk = false;
+                } else {
+                    fullResponse += chunkText;
+                }
+                
+                // Update the UI with the streamed content
+                botContentDiv.innerHTML = converter.makeHtml(fullResponse);
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }
+
+        } catch (error) {
+            console.error("Error sending message:", error);
+            botContentDiv.innerHTML = "Sorry, there was an error communicating with the server.";
+        } finally {
+            isWaitingForResponse = false; // Allow sending new messages
+        }
+    }
+
+    function appendMessage(sender, text, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', `${type}-message`);
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('message-content');
+        
+        // Use textContent for user message to prevent HTML injection
+        if (type === 'user') {
+            const senderStrong = `<strong>${sender}:</strong>`;
+            contentDiv.innerHTML = senderStrong + text;
+        } else {
+            // Bot message is handled by the streaming logic
+            const senderStrong = `<strong>${sender}:</strong>`;
+            contentDiv.innerHTML = senderStrong;
+        }
+
+        messageDiv.appendChild(contentDiv);
+        chatLog.appendChild(messageDiv);
+        chatLog.scrollTop = chatLog.scrollHeight;
+        return messageDiv;
+    }
+
+    sendButton.addEventListener("click", sendMessage);
+    userInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+    </script>
+</body>
+</html>

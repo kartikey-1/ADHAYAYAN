@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>अध्यYAN Core Subjects</title>
+    <meta name="description" content="Computer Science Learning Resources" />
+    <meta name="author" content="CS Learning Hub" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style type="text/css" media="all">
+    /* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.05) 100%);
+  background-attachment: fixed;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #3b82f6;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #2563eb;
+}
+
+/* Navigation */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4f46e5 0%, #2563eb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+  padding-right: 4px;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #475569;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #1e40af;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Main header */
+.main-header {
+  text-align: center;
+  padding: 4rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-header h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0px 2px 10px rgba(59, 130, 246, 0.1);
+}
+
+.main-header p {
+  font-size: 1.3rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Subject Sections */
+.subject-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-section:nth-child(odd) {
+  background-color: #fff;
+}
+
+.subject-section:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.subject-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+  opacity: 0.7;
+}
+
+.subject-section h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+  max-width: 800px;
+}
+
+/* Resource Categories */
+.resources-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.resource-category h3 {
+  font-size: 1.6rem;
+  color: #334155;
+  margin-bottom: 2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid #e2e8f0;
+  position: relative;
+  display: inline-block;
+}
+
+.resource-category h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6 0%, rgba(59, 130, 246, 0.3) 100%);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Resource Cards */
+.resource-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 1.8rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.resource-card:hover::before {
+  transform: scaleX(1);
+}
+
+.resource-card h4 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 0.8rem;
+}
+
+.resource-card p {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.resource-button {
+  display: inline-block;
+  background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.resource-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.resource-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+.resource-button:hover::before {
+  left: 0;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 0;
+  margin-top: 2rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+.initially-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .main-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .main-header p {
+    font-size: 1.1rem;
+  }
+  
+  .subject-section h2 {
+    font-size: 2rem;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 0.5rem;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .main-header h1 {
+    font-size: 2rem;
+  }
+  
+  .section-description {
+    margin-bottom: 1.5rem;
+  }
+  
+  .resource-card {
+    padding: 1.5rem;
+  }
+}
+.resource-badge {
+  display: inline-block;
+  background-color:#e4d9fd;
+  color: #6d28d9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+      
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html"><h1 class="logo">Back</h1></a>
+        <ul class="nav-links">
+          <li><a href="#operating-systems">Operating Systems</a></li>
+          <li><a href="#computer-networks">Computer Networks</a></li>
+          <li><a href="#oops">OOP</a></li>
+          <li><a href="#dbms">DBMS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <header class="main-header">
+        <h1>अध्यYAN</h1>
+        <p>Free resources for the core computer science subjects - organized in one place</p>
+      </header>
+
+      <section id="operating-systems" class="subject-section">
+        <div class="container">
+          <h2>Operating Systems</h2>
+          <p class="section-description">Learn about process management, memory management, file systems, and more.</p>
+          
+          <div class="resources-container">
+            <div class="resource-category">
+              <h3>Notes</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <span class="resource-badge">Article</span>
+                  <h4>OS Concepts and Design</h4>
+                  <p>Comprehensive notes covering process management, memory allocation, and CPU scheduling</p>
+                  <a href="https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/index.html" target="_blank" rel="noopener noreferrer" class="resource-button">View Notes</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">Article</span>
+                  <h4>File Systems and I/O</h4>
+                  <p>Detailed explanation of file organization, allocation methods, and disk scheduling</p>
+                  <a href="https://www.geeksforgeeks.org/operating-systems/file-systems-in-operating-system/" target="_blank" rel="noopener noreferrer" class="resource-button">View Notes</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">Article</span>
+                  
+
+                  <h4>Process Synchronization</h4>
+                  <p>Notes on deadlocks, semaphores, mutexes and critical section problems</p>
+                  <a href="https://www.tutorialspoint.com/operating_system/os_process_synchronization.htm" target="_blank" rel="noopener noreferrer" class="resource-button">View Notes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Video Tutorials</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Operating Systems Course</h4>
+                  <p>Complete video series explaining OS fundamentals from </p>
+                  <span><i class="fas fa-clock"></i> 12 Hours</span>
+                  
+                  <a href="https://www.youtube.com/playlist?list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4> OS One Shot </h4>
+                  <p>Deep dive into virtual memory, paging, and segmentation concepts</p>
+                  <span><i class="fas fa-clock"></i> 6 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=xw_OuOhjauw" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Operating Systems </h4>
+                  <p>Ultimate guide to mastering Operating Systems</p>
+                  <span><i class="fas fa-clock"></i> 16 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=3obEP8eLsCw" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Free Courses</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Introduction to Operating Systems</h4>
+                  <p>Free course by Georgia Tech covering all OS fundamentals</p>
+                  <a href="https://www.udacity.com/course/introduction-to-operating-systems--ud923" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Operating Systems Fundamentals</h4>
+                  <p>Free online book and course materials for OS concepts</p>
+                  <a href="https://www.udemy.com/course/operating-system-fundamentals/" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Operating Systems</h4>
+                  <p>Alison's range of free online operating systems courses </p>
+                  <a href="https://alison.com/tag/operating-systems" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Operating Systems</h4>
+                  <p>By Prof. Sorav Bansal   |   IIT Delhi</p>
+                  <a href="https://onlinecourses.nptel.ac.in/noc20_cs04/preview" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="computer-networks" class="subject-section">
+        <div class="container">
+          <h2>Computer Networks</h2>
+          <p class="section-description">Explore network architectures, protocols, OSI model, routing, and internet technologies.</p>
+          
+          <div class="resources-container">
+            <div class="resource-category">
+              <h3>PDF Notes</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>Network Fundamentals</h4>
+                  <p>Covers OSI model, TCP/IP, and basic networking concepts</p>
+                  <span><i class="fas fa-book"></i> 105 pages</span>
+                  
+                  <a href="pdf/CN/Computer-Network-Notes.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">Article</span>
+                  <h4>Routing Protocols</h4>
+                  <p>Detailed notes on RIP, OSPF, BGP and other routing protocols</p>
+                  <span><i class="fas fa-clock"></i> 45 min read</span>
+                  <a href="https://www.geeksforgeeks.org/computer-network-tutorials/" target="_blank" rel="noopener noreferrer" class="resource-button">View Article</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>Computer Networks Short Notes</h4>
+                  <p> Guide to network principles and practices</p>
+                  <span><i class="fas fa-book"></i> 16 pages</span>
+                  <a href="pdf/CN/CN.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Video Tutorials</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Computer Networks Complete Course</h4>
+                  <p>Full video series covering all aspects of computer networking</p>
+                  <span><i class="fas fa-clock"></i> 10 Hours</span>
+                  <a href="https://www.youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Complete CN | Semester Exam</h4>
+                  <p>Detailed explanation </p>
+                  <span><i class="fas fa-clock"></i> 6 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=q3Z3Qa1UNBA" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Free Courses</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Computer Networks </h4>
+                  <p>Best Computer Networking Courses</p>
+                  <a href="https://alison.com/tag/computer-networking" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>The Bits and Bytes of Computer Networking</h4>
+                  <p>Google's free course on computer networking fundamentals</p>
+                  <a href="https://www.coursera.org/learn/computer-networking" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Network Fundamentals by Cisco</h4>
+                  <p>Free networking course materials from Cisco Network Academy</p>
+                  <a href="https://www.netacad.com/courses/networking/networking-essentials" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Network Fundamentals</h4>
+                  <p>Free networking course materials from Greatlearning </p>
+                  <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/basics-of-computer-networking" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="oops" class="subject-section">
+        <div class="container">
+          <h2>Object-Oriented Programming</h2>
+          <p class="section-description">Master classes, objects, inheritance, polymorphism, encapsulation, and abstraction.</p>
+          
+          <div class="resources-container">
+            <div class="resource-category">
+              <h3>PDF Notes</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>OOP Core Concepts</h4>
+                  <p>Detailed notes on classes, objects, inheritance, and polymorphism in Java</p>
+                  <span><i class="fas fa-book"></i> 29 pages</span>
+                  <a href="pdf/oop/Opps concept in java .pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>OOP Core Concepts</h4>
+                  <p>Detailed notes on classes, objects, inheritance, and polymorphism in C++</p>
+                  <span><i class="fas fa-book"></i> 24 pages</span>
+                  <a href="pdf/oop/oops.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>OOP Questions</h4>
+                  <p>With in-depth explanation </p>
+                  <span><i class="fas fa-book"></i> 8 pages</span>
+                  <a href="pdf/oop/Java question bank.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Video Tutorials</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Object-Oriented Programming Basics with C++</h4>
+                  <p>Fundamentals of OOP explained with examples</p>
+                  <span><i class="fas fa-clock"></i> 4 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=T1fkvT1uPj8" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Object Oriented Programming With python</h4>
+                  <p>Learn with python </p>
+                  <span><i class="fas fa-clock"></i> 1 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=6soT3DMBJGQ" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Object Oriented Programming With Java</h4>
+                  <p>Covers interfaces, abstract classes, and multiple inheritance</p>
+                  <span><i class="fas fa-clock"></i> 4 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=LepLT82RtxA" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Free Courses</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Object Oriented Programming in Java</h4>
+                  <p>Free course by UC San Diego on OOP principles using Java</p>
+                  <a href="https://www.coursera.org/specializations/object-oriented-programming" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>OOP in C++</h4>
+                  <p>Learn object-oriented programming with C++ examples</p>
+                  <a href="https://alison.com/course/advanced-diploma-in-programming-through-c-plus-plus" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Programming Foundations: Object-Oriented Design</h4>
+                  <p>Free course on implementing design patterns</p>
+                  <a href="https://www.linkedin.com/learning/programming-foundations-object-oriented-design-3?upsellOrderOrigin=default_guest_learning" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dbms" class="subject-section">
+        <div class="container">
+          <h2>Database Management Systems</h2>
+          <p class="section-description">Understand relational databases, SQL, normalization, transactions, and database design.</p>
+          
+          <div class="resources-container">
+            <div class="resource-category">
+              <h3>PDF Notes</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>Database Fundamentals</h4>
+                  <p>Comprehensive notes on database models, schemas, and queries</p>
+                  <span><i class="fas fa-book"></i> 13 pages</span>
+                  <a href="https://www.tutorialspoint.com/dbms/dbms_tutorial.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>SQL Joins</h4>
+                  <p>Detailed guide to SQL syntax, joins</p>
+                  <span><i class="fas fa-book"></i> 2 pages</span>
+                  <a href="pdf/DBMS/SQL join.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>Complete SQL Notes </h4>
+                  <p>Notes on database design, normalization forms, and entity relationships</p>
+                  <span><i class="fas fa-book"></i> 101 pages</span>
+                  <a href="pdf/DBMS/sql notes basic to advance .pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>Complete SQL Handwritten Notes </h4>
+                  <p>Comprehensive Handwritten notes </p>
+                  <span><i class="fas fa-book"></i> 30 pages</span>
+                  <a href="pdf/DBMS/SQL Handwritten Notes.pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+                <div class="resource-card">
+                  <span class="resource-badge">PDF</span>
+                  <h4>SQL Questions </h4>
+                  <p>With in-depth explanation </p>
+                  <span><i class="fas fa-book"></i> 10 pages</span>
+                  <a href="pdf/DBMS/SQL Interview Questions .pdf" target="_blank" rel="noopener noreferrer" class="resource-button">View PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Video Tutorials</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Database Management Systems</h4>
+                  <p>Complete video course on DBMS fundamentals and implementation</p>
+                  <span><i class="fas fa-clock"></i> 10 Hours</span>
+                  <a href="https://www.youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4>SQL Tutorial for Beginners</h4>
+                  <p>Learn SQL from basics to advanced concepts with practical examples</p>
+                  <span><i class="fas fa-clock"></i> 6 Hours</span>
+                  <a href="https://www.youtube.com/watch?v=YRnjGeQbsHQ" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Database Design and Normalization</h4>
+                  <p>Understanding database design principles and normalization forms</p>
+                  <span><i class="fas fa-clock"></i>  20 minutes</span>
+                  <a href="https://www.youtube.com/watch?v=UrYLYV7WSHM" target="_blank" rel="noopener noreferrer" class="resource-button">Watch Videos</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>Free Courses</h3>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <h4>Database Systems Concepts & Design</h4>
+                  <p>Free course by Georgia Tech on database concepts</p>
+                  <a href="https://www.udacity.com/course/database-systems-concepts-design--ud150" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Introduction to Databases</h4>
+                  <p>Master the Fundamentals and Advanced Concepts</p>
+                  <a href="https://www.scaler.com/topics/course/dbms/" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+                <div class="resource-card">
+                  <h4>MongoDB University</h4>
+                  <p>Free courses on NoSQL database concepts using MongoDB</p>
+                  <a href="https://university.mongodb.com/" target="_blank" rel="noopener noreferrer" class="resource-button">Enroll Free</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 अध्यYAN</p>
+      </div>
+    </footer>
+
+    <script >
+      document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    });
+  });
+  
+  // Animation for resource cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  document.querySelectorAll('.resource-card').forEach(card => {
+    observer.observe(card);
+    card.classList.add('initially-hidden');
+  });
+});
+
+      
+    </script>
+  </body>
+</html>

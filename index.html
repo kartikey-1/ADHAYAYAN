@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>अध्यYAN - Student Support System</title>
+  <meta name="description" content="A comprehensive student support system with AI chatbot assistance">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header/Navigation -->
+    <header class="header">
+      <div class="logo">
+        <h1>अध्यYAN</h1>
+        
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#home" class="active" data-section="home">Home</a></li>
+          <!-- <li><a href="#chatbot" data-section="chatbot">AI Chatbot</a></li> -->
+          <li><a href="CHAT.html"  >अध्यYAN AI</a></li>
+          <li><a href="Roadmap.html" >Educational Roadmaps</a></li>
+          <!-- <li><a href="#core-subjects" data-section="core-subjects">Core Subjects</a></li> -->
+          <li><a href="CORE_SUB.html"  >Core Subjects</a></li>
+          <li><a href="#college-subjects" data-section="college-subjects">College Subjects</a></li>
+          <li><a href="#languages" data-section="languages">Programming Languages</a></li>
+          <li><a href="#resume" data-section="resume">Resume Templates</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        
+       <button id="loginBtn" class="btn btn-outline">Login</button>
+       
+        <button id="signupBtn" class="btn btn-primary">Sign Up</button>
+      </div>
+      <button class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+    
+    <div class="mobile-nav">
+      <ul>
+        <li><a href="#home" class="active" data-section="home">Home</a></li>
+        
+        <li><a href="CHAT.html"  >अध्यYAN AI</a></li>
+        <li><a href="Roadmap.html" >Educational Roadmaps</a></li>
+        <!-- <li><a href="#core-subjects" data-section="core-subjects">Core Subjects</a></li> -->
+        <li><a href="CORE_SUB.html" >Core Subjects</a></li>
+        <li><a href="#college-subjects" data-section="college-subjects">College Subjects</a></li>
+        <li><a href="#languages" data-section="languages">Programming Languages</a></li>
+        <li><a href="#resume" data-section="resume">Resume Templates</a></li>
+        <li class="mobile-auth">
+          <button id="mobileLoginBtn" class="btn btn-outline">Login</button>
+          <button id="mobileSignupBtn" class="btn btn-primary">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Content Pages -->
+    <main>
+      <!-- HOME SECTION -->
+      <section id="home" class="page active">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-content">
+            <h1>Stronger Together: Comprehensive Student Support!</h1>
+            <p>अध्यYAN helps students excel in their academic journey with AI-powered assistance, comprehensive study materials, and career resources.</p>
+            <div class="hero-buttons">
+              <button id="getStartedBtn" class="btn btn-primary">Get Started</button>
+              <button id="tryChatbotBtn" class="btn btn-outline"><a href="CHAT.html"  >अध्यYAN AI </a></button> 
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="pic/hero.avif">
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+          <h2>How अध्यYAN Helps You Succeed</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3>AI Chatbot</h3>
+              <p>Get instant answers to your educational queries with our advanced AI assistant.</p>
+              <a href="CHAT.html" class="feature-link" >Explore →</a>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h3>Educational Roadmaps</h3>
+              <p>Access educational Roadmaps to Stay on the right path and keep learning.</p>
+              <a href="Roadmap.html" class="feature-link">Explore →</a>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Programming Languages</h3>
+              <p>Learn various programming languages with structured tutorials and exercises.</p>
+              <a href="#languages" class="feature-link" data-section="languages">Explore →</a>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <h3>Resume Templates</h3>
+              <p>Create professional resumes with our customizable templates.</p>
+              <a href="#resume" class="feature-link" data-section="resume">Explore →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subject Categories Section -->
+        <div class="subjects-section">
+          <h2>Subject Categories</h2>
+          <div class="subjects-grid">
+            <a href="CORE_SUB.html" class="subject-card" >
+              <div class="subject-content">
+                <h3>Core Subjects</h3>
+                <p>Master fundamental subjects like DBMS, OS, Computer Networks, and more.</p>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="#college-subjects" class="subject-card" data-section="college-subjects">
+              <div class="subject-content">
+                <h3>College Subjects</h3>
+                <p>Explore semester-wise subjects and resources for your academic curriculum.</p>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+          <h2>Ready to enhance your learning experience?</h2>
+          <p>Join thousands of students who are already using अध्यYAN to improve their academic performance.</p>
+          <div class="cta-buttons">
+            <button id="ctaSignupBtn" class="btn btn-light">Sign Up Now</button>
+            <button id="ctaChatbotBtn" class="btn btn-outline-light"><a href="CHAT.html" >Try अध्यYAN AI </a></button>
+          </div>
+        </div>
+      </section>
+
+<!-- COLLEGE SUBJECTS SECTION -->
+<section id="college-subjects" class="page">
+  <div class="section-header">
+    <h1>College Subjects by Semester</h1>
+    <p>Find organized Youtube videos and channel based on your semester curriculum.</p>
+  </div>
+  
+  <div class="semester-tabs">
+    <button class="semester-tab active" data-sem="1">Semester 1</button>
+    <button class="semester-tab" data-sem="2">Semester 2</button>
+    <button class="semester-tab" data-sem="3">Semester 3</button>
+    <button class="semester-tab" data-sem="4">Semester 4</button>
+    <!-- <button class="semester-tab" data-sem="5">Semester 5</button>
+    <button class="semester-tab" data-sem="6">Semester 6</button>
+    <button class="semester-tab" data-sem="7">Semester 7</button>
+    <button class="semester-tab" data-sem="8">Semester 8</button> -->
+  </div>
+  
+  <div class="semester-content active" data-sem="1">
+    <div class="subjects-grid">
+      <div class="college-subject-card">
+        <h3>Introduction to Programming(CSE104)</h3>
+        <p>Basic programming concepts and problem-solving techniques.</p>
+        <a href="YT_VIDEO.html?videoId=i0ovgS-jCQ8&list=PLxgZQoSe9cg2Gz6t22zam4xB_zOisAEmf"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      
+      <div class="college-subject-card">
+        <h3>Applied Mathematics I(Resource 1)(MAT101) </h3>
+        <p>Calculus and linear algebra foundations.</p>
+        <a href="YT_VIDEO.html?videoId=1XlT3Y2oyAU&list=PLU6SqdYcYsfI7Ebw_j-Vy8YKHdbHKP9am"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary" onclick="window.location.href='JS_Programming.html'">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Applied Mathematics I(Resource 2)(MAT101) </h3>
+        <p>Calculus and linear algebra foundations.</p>
+        <a href="YT_VIDEO.html?videoId=A3rnij1ep2I&list=PL0s3O6GgLL5cf5ylEoaZbESlcQlFccRnt"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary" onclick="window.location.href='JS_Programming.html'">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Applied Chemistry I(CHE101)</h3>
+        <p>Dive into the core concepts of chemistry with video tutorials to strengthen your understanding of Applied Chemistry </p>
+        <a href="YT_VIDEO.html?videoId=G8_j-hIGGCw&list=PL0s3O6GgLL5cyrk8azVOaXwRhrh7sFHus"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Engineering Drawing(BME123)</h3>
+        <p>Master the essential techniques of engineering drawing with video tutorials and free courses that cover fundamental concepts and practical applications.</p>
+        <a href="YT_VIDEO.html?videoId=SB83cUaAiCM&list=PLIhUrsYr8yHx0C3ebAW-FQxTP8ig8-QxU"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Placeholder for other semester contents -->
+  <div class="semester-content" data-sem="2">
+    <div class="subjects-grid">
+      <div class="college-subject-card">
+        <h3>Applied Physics I(PHY101)</h3>
+        <p>Understand the principles of physics with engaging video lessons and free courses that will deepen your knowledge of Applied Physics I.</p>
+        <a href="YT_VIDEO.html?videoId=xitvZvAAS4w&list=PL0s3O6GgLL5eHtvSjz8Cv6zLoxinuZQh9"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Applied Mathematics II(MAT201)</h3>
+        <p>Ordinary and Partial Differential Equations and Transform</p>
+        <a href="YT_VIDEO.html?videoId=bjJZKTrCBNw&list=PLU6SqdYcYsfIuZVt20v-eNZBfFLENrM1F"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      
+      <div class="college-subject-card">
+        <h3>Object Oriented Programming(CSE204)</h3>
+        <p>OOP concepts, inheritance, polymorphism, and encapsulation.</p>
+        
+        <a href="YT_VIDEO.html?videoId=T1fkvT1uPj8"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Basic Electrical Engineering(ECE101)</h3>
+        <p>Gain a strong foundation in electrical engineering concepts through video tutorials and free courses that cover both theory and practical applications of electrical circuits.</p>
+        <a href="YT_VIDEO.html?videoId=MhWbo2U3Ba4&list=PL0s3O6GgLL5cLAfoALo36QVhy1oM5NZsP"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="semester-content" data-sem="3">
+    <div class="subjects-grid">
+      <div class="college-subject-card">
+        <h3>Data Structures(CSE202)</h3>
+        <p>Implementation and analysis of fundamental data structures.</p>
+        <a href="YT_VIDEO.html?videoId=WQoB2z67hvY&list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Python Programming(CSE302)<h3>
+        <p>Learn the fundamentals of Python programming with video tutorials and free online courses, perfect for building a strong foundation in coding.</p>
+        <a href="YT_VIDEO.html?videoId=v9bOWjwdTlg"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Applied Mathematics III(MAT301)</h3>
+        <p>Probability, Statistics and Numerical Methods</p>
+        <a href="YT_VIDEO.html?videoId=qNGDD_Rh8ps&list=PLU6SqdYcYsfJPF-4HphQQ8OceDtqhlSW8"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      
+      <div class="college-subject-card">
+        <h3>Database Management Systems(CSE304)</h3>
+        <p>Explore the core concepts of database design, SQL, and data management with video tutorials to enhance your knowledge of DBMS.</p>
+        
+        <a href="YT_VIDEO.html?videoId=kBdlM6hNDAE&list=PLn32mJ8RhQWiIgEoD2U3gHoHC3ApDOHas"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Basic Eletronics Engineering(ECE306)</h3>
+        <p>Build your understanding of electronic circuits, components, and systems through video lessons, covering both theory and practical aspects of electronics.</p>
+        <a href="YT_VIDEO.html?videoId=M0mx8S05v60&list=PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="semester-content" data-sem="4">
+    <div class="subjects-grid">
+      <div class="college-subject-card">
+        <h3>Computer Organization ans Architecture(CSE402) </h3>
+        <p>Understand the inner workings of computer systems, including hardware, memory, and processors, through video tutorials on computer organization and architecture.</p>
+        <a href="YT_VIDEO.html?videoId=L9X7XXfHYdU&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Java Programming(CSE403)<h3>
+        <p>Master the fundamentals of Java programming with engaging video tutorials that cover key concepts and object-oriented programming techniques.</p>
+        <a href="YT_VIDEO.html?videoId=PymbRTMb4hY&list=PL78RhpUUKSweClRi_l05UgfE3053-zkRf"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3> Discrete Mathematics(CSE401) </h3>
+        <p>Strengthen your understanding of mathematical structures, logic, and algorithms with video tutorials and free courses in Discrete Mathematics.</p>
+        <a href="YT_VIDEO.html?videoId=wGLTV8MgLlA&list=PLU6SqdYcYsfJ27O0dvuMwafS3X8CecqUg"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      
+      <div class="college-subject-card">
+        <h3>Operating Systems(CSE404) </h3>
+        <p>Explore the core concepts of operating systems, including processes, memory management, and file systems, through video tutorials </p>
+        
+        <a href="YT_VIDEO.html?videoId=bkSWJJZNgf8&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+      <div class="college-subject-card">
+        <h3>Analog Electronic Circuits(ECE426)</h3>
+        <p>Gain a solid understanding of analog circuit design, analysis, and applications through video lessons focused on electronic components and systems.</p>
+        <a href="YT_VIDEO.html?videoId=7jaa1rlW7Ak&list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS"><button class="btn btn-small btn-primary">View Resources</button></a>
+        <!-- <button class="btn btn-small btn-primary">View Resources</button> -->
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+      
+
+      
+      <!-- PROGRAMMING LANGUAGES SECTION-->
+<section id="languages" class="page">
+  <div class="section-header">
+    <h1>Programming Languages</h1>
+    <p>Learn various programming languages with structured tutorials and hands-on exercises.</p>
+  </div>
+  
+  <div class="language-grid">
+    <div class="language-card">
+      <div class="language-logo">
+        <i class="fab fa-python"></i>
+      </div>
+      <h3>Python</h3>
+      <p>An easy-to-learn language popular for web development, data science, and automation.</p>
+      <div class="language-meta">
+        <span>Difficulty: Foundation</span>
+        <span>Modules: 8</span>
+      </div>
+      
+      <button class="btn btn-primary" onclick="window.location.href='PYTHON_Programming.html'">Start Learning</button>
+    </div>
+    
+    <div class="language-card">
+      <div class="language-logo">
+        <i class="fab fa-js"></i>
+      </div>
+      <h3>JavaScript</h3>
+      <p>The language of the web - essential for front-end and full-stack development.</p>
+      <div class="language-meta">
+        <span>Difficulty: Foundation</span>
+        <span>Modules: 9</span>
+      </div>
+      <button class="btn btn-primary" onclick="window.location.href='JS_Programming.html'">Start Learning</button>
+    </div>
+    
+    <div class="language-card">
+      <div class="language-logo">
+        <i class="fab fa-java"></i>
+      </div>
+      <h3>Java</h3>
+      <p>A versatile language used for enterprise applications, Android development, and more.</p>
+      <div class="language-meta">
+        <span>Difficulty: Foundation</span>
+        <span>Modules: 9</span>
+      </div>
+      <button class="btn btn-primary" onclick="window.location.href='JAVA_Programming.html'">Start Learning</button>
+    </div>
+    
+    <div class="language-card">
+      <div class="language-logo">
+        <i class="fab fa-cuttlefish"></i>
+      </div>
+      <h3>C++</h3>
+      <p>Powerful low-level languages used for systems programming and performance-critical applications.</p>
+      <div class="language-meta">
+        <span>Difficulty: Foundation</span>
+        <span>Modules: 9</span>
+      </div>
+      <button class="btn btn-primary" onclick="window.location.href='CPP_Programming.html'">Start Learning</button>
+    </div>
+  </div>
+</section>
+
+
+
+      <!-- RESUME SECTION -->
+      <section id="resume" class="page">
+        <div class="section-header">
+          <h1>Resume Templates</h1>
+          <p>Create professional resumes with our customizable templates designed for students and new graduates.</p>
+        </div>
+        
+        <!-- <div class="resume-filters">
+          <button class="filter-btn active" data-filter="all">All Templates</button>
+          <button class="filter-btn" data-filter="simple">Simple</button>
+          <button class="filter-btn" data-filter="professional">Professional</button>
+          <button class="filter-btn" data-filter="creative">Creative</button> 
+        
+        </div> -->
+        
+        <div class="resume-grid">
+          <div class="resume-template" data-type="simple">
+            <div><img src="pic/back1.png"  ></div>
+            
+            <div class="template-info">
+              <h3>Minimalist</h3>
+              <p>Clean and straightforward design focusing on content clarity.</p>
+              <div class="template-actions">
+                <button class="btn btn-primary" data-pdf-url = "pdf/resume/templateresume.pdf">Use Template</button>
+                <!-- <button class="btn btn-outline">Preview</button> -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="resume-template" data-type="professional">
+            <!-- <div class="template-preview placeholder-img"></div> -->
+            <div><img src="pic/back2.png"  ></div>
+            <div class="template-info">
+              <h3>Executive</h3>
+              <p>Professional layout with subtle design elements for corporate applications.</p>
+              <div class="template-actions">
+                <button class="btn btn-primary" data-pdf-url="pdf/resume/ATS_RESUME.pdf">Use Template</button>
+                <!-- <button class="btn btn-outline">Preview</button> -->
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          <div class="resume-template" data-type="simple">
+            <!-- <div class="template-preview placeholder-img"></div> -->
+            <div><img src="pic/back3.png"  ></div>
+            <div class="template-info">
+              <h3>Amity Format</h3>
+              <p>Structured template ideal for Amity Placements</p>
+              <div class="template-actions">
+                <button class="btn btn-primary" data-pdf-url="pdf/resume/Amity resume format.docx">Use Template</button>
+                <!-- <button class="btn btn-outline">Preview</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- LOGIN MODAL
+      <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Login to अध्यYAN</h2>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+            <div class="form-footer">
+              <a href="#" class="form-link">Forgot Password?</a>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+       SIGNUP MODAL 
+      <div id="signupModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Create an Account</h2>
+          <form id="signupForm">
+            <div class="form-group">
+              <label for="signupName">Full Name</label>
+              <input type="text" id="signupName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="signupEmail">Email</label>
+              <input type="email" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" placeholder="Create a password" required>
+            </div>
+            <div class="form-group">
+              <label for="signupConfirm">Confirm Password</label>
+              <input type="password" id="signupConfirm" placeholder="Confirm your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+      </div> -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>अध्यYAN</h3>
+          <p>Comprehensive student support system with AI-powered assistance and educational resources.</p>
+   <!--       <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div> 
+    -->
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="CHAT.html">अध्यYAN AI</a></li>
+            <li><a href="Roadmap.html">Educational Roadmaps</a></li>
+            <li><a href="CORE_SUB.html">Core Subjects</a></li>
+            <li><a href="#college-subjects">College Subjects</a></li>
+          </ul>
+        </div>
+        
+        <!-- <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div> -->
+      <!--  
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Subscribe to get updates on new resources and features.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+        -->
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 अध्यYAN. All rights reserved.</p> 
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
