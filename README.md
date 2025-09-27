@@ -15,5 +15,6 @@ Adhyayan is an AI-powered academic support website designed specifically for com
   - Google Generative AI (for the chatbot's intelligence)
 
 - Deployment: Hosted on Vercel
+- Link: adhayayan.vercel.app
 
 - License: This project is open-source and is licensed under the MIT License. See the LICENSE file for more details.
