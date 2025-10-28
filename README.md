@@ -1,37 +1,16 @@
-# अध्यYAN - Computer Science Learning Platform
+## ADHAYAYAN-Computer-Science-Student-Academic-Support-Website-with-AI-Assistance
+## Short Description: 
+Adhyayan is an AI-powered academic support website designed specifically for computer science students. It acts as a 24/7 personal tutor, providing instant assistance with complex theories, coding problems, and exam preparation to enhance understanding and academic success.
 
-A comprehensive Computer Science learning platform with AI-powered assistance. This is a static website that can be deployed to any static hosting service like Netlify, Vercel, or GitHub Pages.
 
 ## Features
 
-- **AI Chat Assistant**: Powered by Google Gemini AI for Computer Science questions
+- **AI Chat Assistant**: Get instant, 24/7 help with your computer science questions.
 - **Programming Resources**: HTML pages for different programming languages
+- **Interactive Learning**: Engage with an AI that can explain complex topics in simple terms.
 - **PDF Resources**: Curated study materials and notes
-- **Modern UI**: Beautiful, responsive design with smooth animations
-
-## Setup Instructions
-
-### For Local Development
-
-1. Clone the repository
-2. Serve the files using any static server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js (if you have http-server installed)
-   npx http-server
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-3. Open `http://localhost:8000` in your browser
-
-### For Production Deployment
-
-1. **Netlify**: Simply drag and drop the entire folder to Netlify
-2. **Vercel**: Connect your GitHub repository to Vercel
-3. **GitHub Pages**: Enable Pages in your repository settings
+- **Responsive Design**: Access the website and its features seamlessly on any device (desktop, tablet, or mobile).
+- **User-Friendly Interface**: A clean and simple UI designed for a smooth learning experience.
 
 ### API Key Setup
 
@@ -49,20 +28,20 @@ To use the AI chat feature:
 ├── CORE_SUB.html       # Core subjects page
 ├── Roadmap.html        # Learning roadmap
 ├── YT_VIDEO.html       # Video resources
-├── [Language].html     # Programming language pages
+├── Language.html       # Programming language pages
 ├── pdf/                # Study materials
 ├── pic/                # Images and assets
 └── styles.css          # Global styles
 ```
 
-## Technologies Used
+## Technologies Used 
+This project is built with a modern tech stack, separating the frontend and the backend for scalability and maintainability.
 
 - HTML5, CSS3, JavaScript
 - Google Gemini AI API
-- Font Awesome icons
-- Showdown.js for markdown rendering
 - Responsive design with CSS Grid and Flexbox
 
+## Deployment: Hosted on Vercel
 ## License
 
-MIT License - see LICENSE file for details.
+## MIT License - see LICENSE file for details.
