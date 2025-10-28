@@ -1,0 +1,12 @@
+{
+  "name": "adhyayan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "अध्यYAN - A Computer Science learning platform with AI assistant",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  }
+}
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>अध्यYAN AI Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CHAT.css">
+    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-content" role="button" aria-label="Back to Home" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left back-icon"></i>
+            <span class="navbar-text">Back to Home</span>
+        </div>
+    </div>
+
+    <div id="content-container">
+        <div class="sidebar">
+            <h2>अध्यYAN AI</h2>
+            <p>Your intelligent assistant for Computer Science topics. Ask anything and get detailed, helpful responses.
+            </p>
+            <div class="feature-text">
+
+                <strong>How to get API key</strong>
+                <span>
+                <ul >
+                <li class="feature-text">Sign in to your Google account at Google AI Studio.</li>
+                <li>In Google AI Studio, from the Dashboard or the API Keys section, click the “Get API key” or “Create API key” button.</li>
+                <li>Review and accept the Google API terms of service when prompted.</li>
+                <li>Your new API key will be displayed—copy and save it securely for use in your applications.</li>
+                </span>
+            </ul>
+                
+                </div>
+
+            <div class="api-key-section">
+                <h3><i class="fas fa-key"></i> API Key Setup</h3>
+                <p>Enter your Google AI API key to start chatting. Your key is stored locally and never shared.</p>
+                <button class="api-key-button" onclick="setupApiKey()" aria-label="Add API Key">
+                    <i class="fas fa-plus"></i> Add API Key
+                </button>
+                <div id="api-key-status" class="api-key-status" style="display: none;" aria-live="polite">
+                    <i class="fas fa-check"></i> API Key Configured
+                </div>
+            </div>
+
+            <div class="feature-list">
+                
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="feature-text">
+                        <strong>Code Help</strong>
+                        <span>Get assistance with programming</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="feature-text">
+                        <strong>Concepts</strong>
+                        <span>Learn CS fundamentals</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="feature-text">
+                        <strong>Problem Solving</strong>
+                        <span>Debug and optimize solutions</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="feature-text">
+                        <strong>Learning</strong>
+                        <span>Step-by-step explanations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-chat-section">
+            <div class="header-section">
+                <h1 id="heading">अध्यYAN AI Assistant</h1>
+                <p id="sub-heading">Your personal AI assistant for Computer Science</p>
+            </div>
+            <div id="chat-container">
+                <div id="chat-log">
+                    <div class="empty-state">
+                        <i class="fas fa-comment-dots"></i>
+                        <h3>Start a conversation</h3>
+                        <p>Ask me anything about Computer Science</p>
+                    </div>
+                </div>
+                <div id="input-area">
+                    <input type="text" id="user-input" placeholder="Type your question here..." aria-label="Message input" autocomplete="off" />
+                    <button id="send-button" aria-label="Send message" title="Send">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="CHAT.js"></script>
+</body>
+
+</html>

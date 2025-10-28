@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>C++ Course - Accordion Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f7f7f7;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #00599c; /* C++ Blue */
+      margin-bottom: 32px;
+    }
+    h3 {
+        color: #333;
+        margin-top: 24px;
+        margin-bottom: 12px;
+    }
+    details {
+      margin-bottom: 16px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      background: #fafafa;
+      transition: box-shadow 0.2s;
+    }
+    details[open] {
+      box-shadow: 0 2px 8px rgba(0, 89, 156, 0.15);
+      background: #f0f8ff;
+    }
+    summary {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 14px 18px;
+      cursor: pointer;
+      outline: none;
+      color: #00599c;
+      user-select: none;
+    }
+    details[open] summary {
+      color: #004070;
+    }
+    .module-content {
+      padding: 0 18px 16px 18px;
+      color: #333;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+    code {
+      
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    .BackToHome {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      
+      padding: 32px 24px 32px 24px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #00599c;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="BackToHome">
+    <a href="index.html#languages "  class="back-link">&larr; Back</a>
+  </div>
+
+  <div class="container">
+    <h1>A Complete Guide to C++</h1>
+
+    <details open>
+      <summary>1. Introduction to C++</summary>
+      <div class="module-content">
+        <h3>What is C++?</h3>
+        <p>Imagine a programming language is like building a car. Languages like Python are like modern cars with automatic transmission, GPS, and lots of safety features—they're easy to use but you don't have total control. C++ is like a manual transmission race car. It gives you direct control over every part of the machine—the engine, the gearbox, everything. It's more complex to learn, but you can make it go incredibly fast and do precisely what you want.</p>
+        <p>C++ is a powerful, high-performance programming language that gives the programmer a high level of control over system resources and memory. It's an extension of the older 'C' language, but it adds modern features like Object-Oriented Programming.</p>
+        
+        <h3>Why Learn C++?</h3>
+        <ul>
+            <li><b>Game Development:</b> The world's biggest games (like Call of Duty, Fortnite) and game engines (like Unreal Engine) are built with C++. Speed is everything in gaming, and C++ is the king of speed.</li>
+            <li><b>High-Performance Applications:</b> For things like web browsers (Chrome, Firefox), operating systems (Windows, macOS), and complex software like Adobe Photoshop, you need the raw power that C++ provides.</li>
+            <li><b>Robotics and Embedded Systems:</b> Devices like smartwatches, car computers, and medical equipment have limited memory and power. C++ allows developers to write efficient code that runs perfectly on these small devices.</li>
+            <li><b>It Teaches You How Computers *Really* Work:</b> Because C++ gives you control over memory, you'll learn fundamental concepts that are hidden in other languages. Understanding C++ makes you a better programmer overall.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>2. Your First C++ Program</summary>
+      <div class="module-content">
+        <h3>Setting up Your Environment</h3>
+        <p>To build your C++ "race car," you need a compiler and an IDE.</p>
+        <ol>
+            <li><b>Install a C++ Compiler (The Engine Builder):</b> A compiler is a program that translates your C++ code into machine code that the computer's processor can execute directly. The most common compiler is <b>g++</b>, which is part of the GCC toolset.</li>
+            <li><b>Choose an IDE (The Workshop):</b> An IDE will give you a code editor, debugger, and compiler all in one place. Great choices for beginners are <b>Visual Studio Code (with the C/C++ extension)</b>, <b>Code::Blocks</b>, or <b>Visual Studio Community</b> on Windows.</li>
+        </ol>
+
+        <h3>Writing "Hello, World!"</h3>
+        <p>This is the traditional first program for any new language.</p>
+        
+        <pre><code>// 1. This is a "preprocessor directive". It tells the compiler to include
+//    the iostream library, which lets us work with input and output (like printing to the screen).
+#include &lt;iostream&gt;
+
+// 2. This is the 'main' function. Just like in Java, this is the front door
+//    where your program's execution begins.
+int main() {
+    
+    // 3. 'std::cout' is the C++ object for "character output". The '<<' operator
+    //    sends the text on the right to the console.
+    //    'std::endl' creates a new line.
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    
+    // 4. 'return 0' tells the operating system that the program finished successfully.
+    return 0;
+}</code></pre>
+        <p><b>What is `std::`?</b> In C++, `std` stands for the "standard" library. It's a namespace that prevents naming conflicts. By writing `std::cout`, we're being specific that we want the `cout` from the standard library. You can avoid writing `std::` by adding `using namespace std;` at the top of your file, but it's good practice to be explicit when you're starting out.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>3. C++ Basics: Variables, Types, and Operators</summary>
+      <div class="module-content">
+        <h3>Variables and Data Types</h3>
+        <p>Just like Java, C++ is <b>statically-typed</b>. You must declare the type of a variable before you can use it. The box must be labeled before you put something in it.</p>
+        <ul>
+          <li><code>int</code>: For whole numbers. <code>int score = 100;</code></li>
+          <li><code>double</code>: For floating-point (decimal) numbers. <code>double pi = 3.14159;</code></li>
+          <li><code>char</code>: For a single character. Uses single quotes. <code>char initial = 'J';</code></li>
+          <li><code>bool</code>: For true/false values. <code>bool isPlaying = true;</code></li>
+          <li><code>std::string</code>: The standard C++ way to handle text. Requires <code>#include &lt;string&gt;</code> and uses double quotes. <code>std::string playerName = "Alex";</code></li>
+        </ul>
+        <h3>Operators</h3>
+        <p>C++ operators are nearly identical to Java's:</p>
+        <ul>
+            <li><b>Arithmetic:</b> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulo).</li>
+            <li><b>Assignment:</b> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, etc.</li>
+            <li><b>Comparison:</b> <code>==</code> (equal to), <code>!=</code> (not equal to), <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>4. Getting User Input</summary>
+      <div class="module-content">
+          <h3>Making Interactive Programs with `cin`</h3>
+          <p>To get input from the user in C++, you use `std::cin`, which stands for "character input". It's the partner to `std::cout`.</p>
+          <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name;
+    int age;
+    
+    // Ask for the user's name
+    std::cout &lt;&lt; "Please enter your name: ";
+    
+    // The '>>' operator takes the input from 'std::cin' and puts it into the variable.
+    std::cin &gt;&gt; name;
+    
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl;
+    
+    // Ask for the user's age
+    std::cout &lt;&lt; "Please enter your age: ";
+    std::cin &gt;&gt; age;
+    
+    std::cout &lt;&lt; "You are " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; std::endl;
+    
+    return 0;
+}</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>5. Control Flow: Making Decisions</summary>
+      <div class="module-content">
+          <h3>If/Else Statements</h3>
+          <p>The syntax is identical to Java. This is how your program chooses a path.</p>
+          <pre><code>int powerLevel = 9001;
+
+if (powerLevel > 9000) {
+    std::cout &lt;&lt; "It's over 9000!" &lt;&lt; std::endl;
+} else {
+    std::cout &lt;&lt; "Just a regular power level." &lt;&lt; std::endl;
+}</code></pre>
+          <h3>Loops (for/while/do-while)</h3>
+          <p>The loops in C++ work exactly the same way as they do in Java.</p>
+          <p><b>For Loop:</b> Great for when you know the number of iterations.</p>
+          <pre><code>for (int i = 0; i < 5; i++) {
+    std::cout &lt;&lt; "Current number is " &lt;&lt; i &lt;&lt; std::endl;
+}</code></pre>
+          <p><b>While Loop:</b> Checks the condition *before* running. May not run at all.</p>
+          <pre><code>int ammo = 10;
+while (ammo > 0) {
+    std::cout &lt;&lt; "Firing! Ammo left: " &lt;&lt; ammo &lt;&lt; std::endl;
+    ammo--; // Decrement ammo by 1
+}</code></pre>
+          <p><b>Do-While Loop:</b> Runs the code once, *then* checks the condition. Always runs at least once.</p>
+          <pre><code>std::string input;
+do {
+    std::cout &lt;&lt; "Type 'exit' to quit: ";
+    std::cin &gt;&gt; input;
+} while (input != "exit");</code></pre>
+      </div>
+    </details>
+
+    <details>
+        <summary>6. Data Structures (The STL)</summary>
+        <div class="module-content">
+            <p>C++ provides a powerful set of data structures in its <b>Standard Template Library (STL)</b>. You just need to `#include` the right header file to use them.</p>
+            <h3>Vectors (Dynamic Arrays)</h3>
+            <p>A `std::vector` is C++'s version of an `ArrayList`. It's an array that can grow or shrink in size automatically. It's incredibly useful.</p>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+// ... inside a function ...
+std::vector&lt;std::string&gt; tasks;
+tasks.push_back("Do homework"); // Adds an item to the end
+tasks.push_back("Clean room");
+tasks.push_back("Play games");
+
+tasks.pop_back(); // Removes the last item ("Play games")
+
+// A modern way to loop through a vector
+for (const std::string& task : tasks) {
+    std::cout &lt;&lt; "- " &lt;&lt; task &lt;&lt; std::endl;
+}</code></pre>
+            
+            <h3>Maps (Key-Value Pairs)</h3>
+            <p>A `std::map` is C++'s version of a `HashMap`. It stores key-value pairs, like a dictionary.</p>
+            <pre><code>#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+std::map&lt;std::string, int&gt; inventory;
+inventory["potions"] = 5;
+inventory["gold"] = 100;
+
+inventory["potions"] = 4; // Update the value
+
+std::cout &lt;&lt; "You have " &lt;&lt; inventory["gold"] &lt;&lt; " gold." &lt;&lt; std::endl;</code></pre>
+            <h3>Stack and Queue</h3>
+            <p>The `std::stack` (LIFO) and `std::queue` (FIFO) in C++ work just like their Java counterparts. You `#include <stack>` or `#include <queue>` and use methods like `push()`, `pop()`, `front()` (for queue), and `top()` (for stack).</p>
+        </div>
+    </details>
+    
+    <details>
+        <summary>7. Pointers and Memory Management</summary>
+        <div class="module-content">
+            <h3>The Most Important C++ Concept</h3>
+            <p>This is what makes C++ so powerful and different from Java. Every variable you create is stored somewhere in your computer's memory (RAM). That location has an address, just like your house has a street address.</p>
+            <p>A <b>pointer</b> is a special variable that doesn't hold a value like `10` or `"Hello"`; it holds a memory address.</p>
+            <ul>
+                <li>The `&` (address-of) operator gets the memory address of a variable.</li>
+                <li>The `*` (dereference) operator goes to the address stored in a pointer and gets the value that lives there.</li>
+            </ul>
+            <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int score = 100;
+    int* scorePtr; // A pointer that can hold the address of an integer
+
+    scorePtr = &score; // Store the memory address of 'score' in 'scorePtr'
+
+    std::cout &lt;&lt; "Value of score: " &lt;&lt; score &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Address of score: " &lt;&lt; &score &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Value of scorePtr: " &lt;&lt; scorePtr &lt;&lt; std::endl; // Will be same as address of score
+    
+    // Use the pointer to get the value
+    std::cout &lt;&lt; "Value at address pointed to by scorePtr: " &lt;&lt; *scorePtr &lt;&lt; std::endl;
+    
+    // You can even change the original variable through the pointer
+    *scorePtr = 200;
+    std::cout &lt;&lt; "New value of score: " &lt;&lt; score &lt;&lt; std::endl; // Prints 200
+    
+    return 0;
+}</code></pre>
+            <h3>Dynamic Memory with `new` and `delete`</h3>
+            <p>Sometimes you don't know how much memory you'll need until your program is running. Pointers allow you to request memory directly from the operating system using `new`. But here's the catch: you are responsible for giving it back when you're done using `delete`. Forgetting to `delete` memory is called a "memory leak" and can crash your program or computer!</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>8. Object-Oriented Programming (OOP)</summary>
+        <div class="module-content">
+            <p>OOP in C++ is very similar to Java, but the syntax is a bit different. We often split our classes into two files: a header file (`.h`) for the declaration, and a source file (`.cpp`) for the implementation.</p>
+            
+            <h3>Header File (`Player.h`)</h3>
+            <p>The header is the blueprint. It declares what variables and functions the class will have.</p>
+            <pre><code>#ifndef PLAYER_H
+#define PLAYER_H
+#include &lt;string&gt;
+
+class Player {
+public: // Can be accessed from anywhere
+    Player(std::string name); // Constructor
+    void levelUp();
+    std::string getName();
+    
+private: // Can only be accessed by methods inside the Player class
+    std::string m_name;
+    int m_level;
+};
+#endif</code></pre>
+
+            <h3>Source File (`Player.cpp`)</h3>
+            <p>The source file contains the actual code for the methods declared in the header.</p>
+            <pre><code>#include "Player.h" // Include our own header file
+#include &lt;iostream&gt;
+
+Player::Player(std::string name) {
+    m_name = name;
+    m_level = 1;
+}
+
+void Player::levelUp() {
+    m_level++;
+    std::cout &lt;&lt; m_name &lt;&lt; " is now level " &lt;&lt; m_level &lt;&lt; "!" &lt;&lt; std::endl;
+}
+
+std::string Player::getName() {
+    return m_name;
+}</code></pre>
+            <p>Inheritance and Polymorphism work similarly to Java, using `class Mage : public Player` for inheritance and the `virtual` keyword for polymorphism.</p>
+        </div>
+    </details>
+    
+    <details>
+      <summary>9. What's Next?</summary>
+      <div class="module-content">
+        <h3>You've Learned the Fundamentals!</h3>
+        <p>Amazing! You've covered the core concepts of C++, including the toughest part—pointers! You have a solid foundation to build upon.</p>
+        <p>Where to go from here?</p>
+        <ul>
+            <li><b>Game Development:</b> Download the <b>Unreal Engine</b> and start following their C++ tutorials. It's a fun and visual way to see your C++ code in action.</li>
+            <li><b>Learn Modern C++:</b> C++ is always evolving. Look into features from C++11, C++14, and C++17 like smart pointers, lambda functions, and more.</li>
+            <li><b>Contribute to Open-Source:</b> Find a project on GitHub that interests you. Many large applications are written in C++ and welcome new contributors.</li>
+            <li><b>Practice, Practice, Practice:</b> The best way to get better is to build things. Try making a text-based adventure game, a calculator, or a simple physics simulation.</li>
+        </ul>
+        <p>C++ is a challenging but incredibly rewarding language. Mastering it will open doors to some of the most exciting fields in computer science. Good luck!</p>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>
