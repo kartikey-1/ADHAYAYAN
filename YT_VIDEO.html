@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Watch Video</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a7d1eb, #d0e7f5); /* Light and airy blue gradient */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .back-btn {
+      margin-bottom: 45px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #54a0ff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(84, 160, 255, 0.4);
+    }
+
+    .back-btn:hover {
+      background-color: #2e86de;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(46, 134, 222, 0.5);
+    }
+
+    .video-container {
+      width: 95%;
+      max-width: 950px;
+      aspect-ratio: 16 / 9;
+      background: #f0f8ff;
+      border: none;
+      border-radius: 22px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #video-container iframe {
+      border-radius: 22px;
+    }
+
+    #video-container p {
+      font-size: 1.3rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Back to Home</a>
+  <div class="video-container" id="video-container"></div>
+
+  <script>
+    function getVideoIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('videoId');
+    }
+
+    function showSelectedVideo() {
+      const videoId = getVideoIdFromUrl();
+      if (!videoId) {
+        document.getElementById('video-container').innerHTML = "<p>No video selected.</p>";
+        return;
+      }
+      const iframe = document.createElement('iframe');
+      iframe.width = "100%";
+      iframe.height = "100%";
+      iframe.style.border = "none";
+      iframe.style.borderRadius = "22px";
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0`;
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      document.getElementById('video-container').appendChild(iframe);
+    }
+
+    showSelectedVideo();
+  </script>
+
+</body>
+</html>
